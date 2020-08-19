@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: rebeccapurple;
+    /* font-family: 'Pacifico', cursive; */
+    font-family: 'Bree Serif', serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+h2 {
+    color: rebeccapurple;
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+    text-align: center;
+}
+
+a:link, a:visited {
+    color: lavender;
+    text-decoration: none;
+}
+
+a:focus, a:active, a:hover {
+    color: plum;
+}
+
+.recipe {
+    margin: 0 auto;
+    text-align: center;
+    display: box;
+}
+
+img {
+    width: 50%;
+    border: solid 10px plum;
+}
+
+img:hover {
+    border: solid 10px #f2d3ed;
+}
+
+#navbar {
+    background-color: rebeccapurple;
+    color: seashell;
+    font-family: 'Bree Serif', serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navButton {
+    padding: 2px 30px;
+    text-align: center;
+}
+
+#guest-input {
+    color: lightgray;
+}
+
+#thankyou {
+    font-style: italic;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    background-color: lavender;
+    margin-top: 60px;
+    padding: 2px 10px;
+}
