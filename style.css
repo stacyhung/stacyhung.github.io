@@ -44,6 +44,7 @@ Recipes
 
 img {
     width: 50%;
+    max-width: 800px;
     border: solid 10px plum;
 }
 
@@ -55,23 +56,62 @@ img:hover {
 Navigation
 ========================= */
 
-#navbar {
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    /* align-items: center; */
+    margin: auto 0;
+    padding-left: 20px;
+    /* background-color: pink; */
+}
+
+#title {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: #f5df38;
+    /* background-color: blue; */
+}
+
+#subtitle {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Architects Daughter', cursive;
+    /* padding-bottom: 15px; */
+    text-transform: uppercase;
+    color: orange;
+    /* background-color: blueviolet; */
+}
+
+#nav-bar {
     background-color: rebeccapurple;
-    color: seashell;
     font-family: 'Bree Serif', serif;
     font-size: 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.navButton {
-    padding: 2px 30px;
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4em;
+    padding-right: 2em;
+}
+
+.nav-button {
+    padding: 0 30px;
     text-align: center;
 }
 
 .current-page {
     border-bottom: solid 2px seashell;
+    padding: 0.25em 0;
+}
+
+.current-page:hover {
+    color: lavender;
 }
 
 a:link, a:visited {
