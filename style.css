@@ -123,6 +123,14 @@ a:focus, a:active, a:hover {
     color: plum;
 }
 
+@media (max-width: 600px) {
+    #nav-bar {
+        /* background-color: blue; */
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+}
 
 /* ======================
 Guest input
