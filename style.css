@@ -1,3 +1,7 @@
+/* ======================
+Layout and typography
+========================= */
+
 body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -18,14 +22,19 @@ h2 {
     text-align: center;
 }
 
-a:link, a:visited {
-    color: lavender;
-    text-decoration: none;
+p {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-a:focus, a:active, a:hover {
-    color: plum;
+footer {
+    background-color: lavender;
+    margin-top: 60px;
+    padding: 2px 10px;
 }
+
+/* ======================
+Recipes
+========================= */
 
 .recipe {
     margin: 0 auto;
@@ -42,6 +51,10 @@ img:hover {
     border: solid 10px #f2d3ed;
 }
 
+/* ======================
+Navigation
+========================= */
+
 #navbar {
     background-color: rebeccapurple;
     color: seashell;
@@ -57,20 +70,33 @@ img:hover {
     text-align: center;
 }
 
+.current-page {
+    border-bottom: solid 2px seashell;
+}
+
+a:link, a:visited {
+    color: lavender;
+    text-decoration: none;
+}
+
+a:focus, a:active, a:hover {
+    color: plum;
+}
+
+
+/* ======================
+Guest input
+========================= */
+
+.guest-container {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
 #guest-input {
     color: lightgray;
 }
 
 #thankyou {
     font-style: italic;
-}
-
-p {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-footer {
-    background-color: lavender;
-    margin-top: 60px;
-    padding: 2px 10px;
 }
