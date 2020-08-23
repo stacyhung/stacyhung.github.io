@@ -10,6 +10,10 @@ let timerId = 0;
 let interval = 1000; // 1000ms or 1s
 let speed = 0.9 // increment ratio by which to decrease speed by
 let appleIndex = 0;
+let apple = document.createElement("img");
+apple.src = "../images/apple5.png";
+apple.alt = "cartoon apple";
+apple.classList.add('apple-img');
 
 // create grid
 function createGrid() {
@@ -71,39 +75,42 @@ function move() {
     ) {
         console.log('Snake is going to hit a wall!');
         clearInterval(timerId);
+    } else {
+        // otherwise remove last element (and styling) from snake array
+        let tail = currentSnake.pop();
+        squares[tail].classList.remove('snake');
+
+        // add square (and styling) in the direction we are heading
+        currentSnake.unshift(currentSnake[0] + direction);
+
+        // handle the case when the snake hits an apple
+        console.log('Index of currentSnake[0]: ' + currentSnake[0]);
+
+        if (squares[currentSnake[0]].classList.contains('apple')) {
+            // remove class apple
+            squares[currentSnake[0]].classList.remove('apple');
+            squares[currentSnake[0]].removeChild(apple);
+            // grow snake by adding class of snake to it
+            squares[tail].classList.add('snake');
+            // grow the snake array
+            currentSnake.push(tail);
+            // create new apple
+            generateApple();
+            // add 1 to the score
+            score += 1;
+            scoreDisplay.textContent = score;
+            // speed up the snake:
+            //      1. reset timerId
+            clearInterval(timerId);
+            // timerId = 0;
+            //      2. decrease interval time
+            interval = interval * speed;
+            //      3. start new interval
+            timerId = setInterval(move, interval);
+        }
+        squares[currentSnake[0]].classList.add('snake');
     }
-    // otherwise remove last element (and styling) from snake array
-    let tail = currentSnake.pop();
-    squares[tail].classList.remove('snake');
 
-    // add square (and styling) in the direction we are heading
-    currentSnake.unshift(currentSnake[0] + direction);
-
-    // handle the case when the snake hits an apple
-    console.log('Index of currentSnake[0]: ' + currentSnake[0]);
-
-    if (squares[currentSnake[0]].classList.contains('apple')) {
-        // remove class apple
-        squares[currentSnake[0]].classList.remove('apple');
-        // grow snake by adding class of snake to it
-        squares[tail].classList.add('snake');
-        // grow the snake array
-        currentSnake.push(tail);
-        // create new apple
-        generateApple();
-        // add 1 to the score
-        score += 1;
-        scoreDisplay.textContent = score;
-        // speed up the snake:
-        //      1. reset timerId
-        clearInterval(timerId);
-        // timerId = 0;
-        //      2. decrease interval time
-        interval = interval * speed;
-        //      3. start new interval
-        timerId = setInterval(move, interval);
-    }
-    squares[currentSnake[0]].classList.add('snake');
 }
 
 function generateApple() {
@@ -113,6 +120,8 @@ function generateApple() {
     } while (squares[appleIndex].classList.contains('snake'))
     // add styling
     squares[appleIndex].classList.add('apple');
+    squares[appleIndex].appendChild(apple);
+
 }
 
 /*

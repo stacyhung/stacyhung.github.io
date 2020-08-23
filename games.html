@@ -4,11 +4,10 @@
 
 <head>
     <title>Games</title>
-    <link href="style.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Dancing+Script:wght@500&family=Lobster&family=Pacifico&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Dancing+Script:wght@500&family=Lobster&family=Pacifico&family=Architects+Daughter&display=swap"
         rel="stylesheet">
-
 </head>
 
 <body>
@@ -30,7 +29,32 @@
     <header>
         <h1>Games</h1>
     </header>
+    <main>
+        <div class="game">
+            <h2>Snake game</h2>
+            <a class="game-link" href="games/snakegame.html">
+                <img src="images/snakegame.jpg" class="img-link"
+                    alt="snapshot of the google version of the snakegame" />
+            </a>
+        </div>
+        <div class="game">
+            <h2>Codenames</h2>
+            <a class="game-link" href="#">
+                <img src="images/codenames.jpg" class="img-link" alt="snapshot of spymaster card from codenames" />
+            </a>
+        </div>
+    </main>
+    <footer>
+        <div class="guest-container">
+            <p>Add your name to the guest book:</p>
+            <input id="guest-input" value="Enter your name"></input>
+            <button id="submit-button">Submit</button>
+            <br>
+            <p id="thankyou"></p>
+        </div>
+    </footer>
 
+    <script src="index.js"></script>
 </body>
 
 </html>
