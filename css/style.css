@@ -4,7 +4,12 @@ Layout and typography
 
 body{
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-buttons {
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
 }
 
 img {
@@ -52,8 +57,20 @@ Recipes
     border: solid 10px plum;
 }
 
-.img-link:hover {
+/* ======================
+Links
+========================= */
+
+.img-link:hover, 
+.img-link:focus,
+.trip-link:hover,
+.trip-link:focus {
     border: solid 10px #f2d3ed;
+}
+
+.img-link, 
+.trip-link {
+    border: solid 10px plum;
 }
 
 /* ======================
@@ -106,7 +123,7 @@ Navigation
 }
 
 .nav-button {
-    padding: 0 30px;
+    padding: 0 20px;
     text-align: center;
 }
 
@@ -199,10 +216,6 @@ Snake game
 .square {
     width: 25px;
     height: 25px;
-
-    /* width: 22px;
-    height: 22px; */
-    /* border: black solid 1px; */
 }
 
 .snake {
@@ -233,4 +246,46 @@ Snake game
 
 #start-btn {
     padding: 0.5em;
+}
+
+/* ======================
+Travelling page
+========================= */
+
+.trip-collage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.trip-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.new-zealand-pic {
+    background-image: url(../images/new_zealand/DSC_4554.JPG);
+}
+
+.japan-pic {
+    background-image: url(../images/japan/IMG_1102.JPG);
+}
+
+.iceland-pic {
+    background-image: url(../images/iceland/2-6-Vestmannaeyjar-puffins.jpg);
+}
+
+.yukon-pic {
+    background-image: url(../images/yukon/IMG_0209.jpg);
 }
