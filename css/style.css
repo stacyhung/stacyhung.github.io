@@ -49,12 +49,16 @@ Recipes
     margin: 0 auto;
     text-align: center;
     display: box;
+    /* max-height: 300px; */
 }
 
 .img-link {
     width: 50%;
     max-width: 800px;
     border: solid 10px plum;
+    object-fit: cover;
+    background-position: center;
+    max-height: 500px;
 }
 
 /* ======================
@@ -267,11 +271,15 @@ Travelling page
     max-width: 300px;
     margin: 20px;
     padding: 20px;
-    height: 300px;
+    height: 275px;
     background-size: cover;
     background-position: center;
-    font-size: 1.8rem;
     color: white;
+}
+
+.trip-title {
+    font-size: 1.8rem;
+    font-weight: 400;
 }
 
 .new-zealand-pic {
@@ -279,7 +287,7 @@ Travelling page
 }
 
 .japan-pic {
-    background-image: url(../images/japan/IMG_1102.JPG);
+    background-image: url(../images/japan/IMG_1391.JPG);
 }
 
 .iceland-pic {
