@@ -1,6 +1,9 @@
 /* ======================
 Layout and typography
 ========================= */
+* {
+    box-sizing: border-box;
+}
 
 body{
     margin: 0;
@@ -67,6 +70,8 @@ Recipes
 Links
 ========================= */
 
+
+/* Eventually, we want to add a slight "zoom" effect when the user hovers */
 .img-link:hover, 
 .img-link:focus,
 .trip-link:hover,
