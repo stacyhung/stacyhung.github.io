@@ -20,7 +20,7 @@ h1 {
     color: rebeccapurple;
     /* font-family: 'Pacifico', cursive; */
     font-family: 'Bree Serif', serif;
-    font-size: 50px;
+    font-size: 3rem;
     text-align: center;
 }
 
@@ -269,10 +269,10 @@ Travelling page
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 35%;
+    width: 32%;
     max-width: 300px;
     margin: 20px;
-    padding: 20px;
+    padding: 20px 30px;
     height: 275px;
     background-size: cover;
     background-position: center;
@@ -285,7 +285,8 @@ Travelling page
 }
 
 .new-zealand-pic {
-    background-image: url(../images/new_zealand/DSC_4554.JPG);
+    background-image: url(../images/new_zealand/IMG_3864.JPG);
+    background-position: bottom left;
 }
 
 .japan-pic {
@@ -294,6 +295,7 @@ Travelling page
 
 .iceland-pic {
     background-image: url(../images/iceland/2-6-Vestmannaeyjar-puffins.jpg);
+    /* background-position: bottom right; */
 }
 
 .yukon-pic {
