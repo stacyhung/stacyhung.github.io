@@ -20,14 +20,14 @@ h1 {
     color: rebeccapurple;
     /* font-family: 'Pacifico', cursive; */
     font-family: 'Bree Serif', serif;
-    font-size: 3rem;
+    font-size: 2.8rem;
     text-align: center;
 }
 
 h2 {
     color: rebeccapurple;
     font-family: 'Dancing Script', cursive;
-    font-size: 35px;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -114,7 +114,7 @@ Navigation
 #nav-bar {
     background-color: rebeccapurple;
     font-family: 'Bree Serif', serif;
-    font-size: 20px;
+    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
 }
@@ -129,7 +129,7 @@ Navigation
 }
 
 .nav-button {
-    padding: 0 20px;
+    padding: 0 1em;
     text-align: center;
 }
 
@@ -157,7 +157,7 @@ a:focus, a:active, a:hover {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 0;
+        padding: 1em 0;
     }
 
     .header {
@@ -280,7 +280,7 @@ Travelling page
 }
 
 .trip-title {
-    font-size: 1.8rem;
+    color: white;
     font-weight: 400;
 }
 
