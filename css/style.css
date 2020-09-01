@@ -186,7 +186,8 @@ Links
 .img-link, 
 .trip-link {
     border: solid 10px plum;
-    transition: 250ms;
+    transform: scale(1);
+    transition: transform 250ms;
     
 }
 
