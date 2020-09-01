@@ -5,12 +5,23 @@ Layout and typography
     box-sizing: border-box;
 }
 
-body, p {
+body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+body, p {
+    font-family: 'Roboto', sans-serif;
 }
 
 .nav-buttons {
@@ -25,7 +36,7 @@ img {
 h1 {
     color: rebeccapurple;
     font-family: 'Bree Serif', serif;
-    font-size: 2.8rem;
+    font-size: 2.65rem;
     text-align: center;
 }
 
@@ -41,7 +52,7 @@ Guest input
 ========================= */
 
 .guest-container {
-    margin: 2rem auto;
+    margin-top: 2rem;
     padding: 2rem;
     background-color: lavender;
     display: flex;
@@ -55,7 +66,7 @@ Guest input
 }
 
 /* ======================
-Recipes
+image links
 ========================= */
 
 .recipe, .game {
@@ -67,13 +78,11 @@ Recipes
 }
 
 .img-link {
-    width: 40%;
+    width: 50%;
+    min-width: 350px;
     max-width: 800px;
     border: solid 10px plum;
     background-size: cover;
-    /* object-fit: contain; */
-    /* background-position: center; */
-    /* max-height: 500px; */
 }
 
 /* ======================
@@ -81,7 +90,21 @@ Recipe page
 ========================= */
 
 .recipe-quick-summary {
-    margin: 1em;
+    margin: 0 1em;
+    padding: 0;
+}
+
+.recipe-quick-summary p {
+    margin: 0;
+}
+
+.recipe-metric {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 110px;
+    /* background-color: pink; */
 }
 
 .recipe-img {
@@ -96,14 +119,6 @@ Recipe page
     width: 80%;
     font-style: italic;
     line-height: 1.35em;
-}
-
-.recipe-metric {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-    width: 110px;
 }
 
 .recipe-container {
@@ -193,7 +208,7 @@ Navigation
 #nav-bar {
     background-color: rebeccapurple;
     font-family: 'Bree Serif', serif;
-    font-size: 1.2rem;
+    font-size: 1.175rem;
     display: flex;
     justify-content: space-between;
 }
