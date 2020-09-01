@@ -61,6 +61,20 @@ Guest input
     height: 100%;
 }
 
+input {
+    border: 0;
+    padding: 0.35em;
+    margin: 0 0.5em;
+}
+
+button {
+    border: 0;
+    background-color: white;
+    padding: 0.35em 0.75em;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
 #thankyou {
     font-style: italic;
 }
@@ -166,11 +180,14 @@ Links
 .trip-link:hover,
 .trip-link:focus {
     border: solid 10px #f2d3ed;
+    transform: scale(1.05);
 }
 
 .img-link, 
 .trip-link {
     border: solid 10px plum;
+    transition: 250ms;
+    
 }
 
 /* ======================
