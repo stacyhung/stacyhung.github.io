@@ -8,6 +8,9 @@ Layout and typography
 body, p {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .nav-buttons {
@@ -21,7 +24,6 @@ img {
 
 h1 {
     color: rebeccapurple;
-    /* font-family: 'Pacifico', cursive; */
     font-family: 'Bree Serif', serif;
     font-size: 2.8rem;
     text-align: center;
@@ -34,11 +36,22 @@ h2 {
     text-align: center;
 }
 
-footer {
-    height: 150px;
+/* ======================
+Guest input
+========================= */
+
+.guest-container {
+    margin: 2rem auto;
+    padding: 2rem;
     background-color: lavender;
-    margin-top: 60px;
-    padding: 2px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#thankyou {
+    font-style: italic;
 }
 
 /* ======================
@@ -48,7 +61,8 @@ Recipes
 .recipe, .game {
     margin: 0 auto;
     text-align: center;
-    display: box;
+    display: flex;
+    flex-direction: column;
     /* max-height: 300px; */
 }
 
@@ -72,7 +86,7 @@ Recipe page
 
 .recipe-img {
     width: 80%;
-    max-height: 400px;
+    max-height: 300px;
     object-fit: cover;
     margin-left: 1rem;
 }
@@ -81,6 +95,7 @@ Recipe page
     margin: 1.5rem;
     width: 80%;
     font-style: italic;
+    line-height: 1.35em;
 }
 
 .recipe-metric {
@@ -98,6 +113,10 @@ Recipe page
     margin: 1rem;
 }
 
+.recipe-container p, li, .recipe-metric {
+    font-weight: 300;
+}
+
 .recipe-container h3, .recipe-measure {
     text-transform: uppercase;
     font-size: 1.25rem;
@@ -106,6 +125,10 @@ Recipe page
 }
 
 @media (min-width: 600px) {
+    /* .recipe {
+        flex-direction: row;
+    } */
+
     .recipe-container {
         flex-direction: row;
         justify-content: space-between;
@@ -121,7 +144,6 @@ Recipe page
 /* ======================
 Links
 ========================= */
-
 
 /* Eventually, we want to add a slight "zoom" effect when the user hovers */
 .img-link:hover, 
@@ -235,24 +257,6 @@ a:focus, a:active, a:hover {
         /* background-color: palegreen; */
     }
 }
-
-/* ======================
-Guest input
-========================= */
-
-.guest-container {
-    text-align: center;
-    padding-bottom: 40px;
-}
-
-#guest-input {
-    color: lightgray;
-}
-
-#thankyou {
-    font-style: italic;
-}
-
 /* ======================
 Snake game
 ========================= */
@@ -327,7 +331,9 @@ Travelling page
     flex-direction: column;
     justify-content: center;
     width: 32%;
-    max-width: 300px;
+    /* max-width: 300px; */
+    /* min-width: 250px; */
+    width: 300px;
     margin: 20px;
     padding: 20px 30px;
     height: 275px;

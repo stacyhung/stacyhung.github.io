@@ -26,10 +26,11 @@
         </div>
     </nav>
 
-    <header>
-        <h1>Games</h1>
-    </header>
     <main>
+        <header>
+            <h1>Games</h1>
+        </header>
+
         <div class="game">
             <h2>Snake game</h2>
             <a class="game-link" href="games/snakegame.html">
@@ -44,12 +45,14 @@
             </a>
         </div>
     </main>
+
     <footer>
         <div class="guest-container">
-            <p>Add your name to the guest book:</p>
-            <input id="guest-input" value="Enter your name"></input>
-            <button id="submit-button">Submit</button>
-            <br>
+            <form class="suscribe-form">
+                <label for="guest-email">Subscribe to our mailing list:</label>
+                <input id="guest-email" placeholder="Email" type="email" required>
+                <button id="submit-button" type="submit">Submit</button>
+            </form>
             <p id="thankyou"></p>
         </div>
     </footer>

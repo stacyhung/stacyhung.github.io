@@ -26,29 +26,33 @@
         </div>
     </nav>
 
-    <header>
-        <h1>My travelling adventures!</h1>
-    </header>
-    <main class="trip-collage">
-        <div class="trip-link new-zealand-pic">
-            <h3 class="trip-title">Three weeks in New Zealand</h3>
-        </div>
-        <div class="trip-link japan-pic">
-            <h3 class="trip-title">Two weeks in Japan</h3>
-        </div>
-        <div class="trip-link iceland-pic">
-            <h3 class="trip-title">Two weeks in Iceland</h3>
-        </div>
-        <div class="trip-link yukon-pic">
-            <h3 class="trip-title">One week in the Yukon</h3>
+    <main>
+        <header>
+            <h1>My travelling adventures!</h1>
+        </header>
+
+        <div class="trip-collage">
+            <div class="trip-link new-zealand-pic">
+                <h2 class="trip-title">Three weeks in New Zealand</h3>
+            </div>
+            <div class="trip-link japan-pic">
+                <h2 class="trip-title">Two weeks in Japan</h3>
+            </div>
+            <div class="trip-link iceland-pic">
+                <h2 class="trip-title">Two weeks in Iceland</h3>
+            </div>
+            <div class="trip-link yukon-pic">
+                <h2 class="trip-title">One week in the Yukon</h3>
+            </div>
         </div>
     </main>
     <footer>
         <div class="guest-container">
-            <p>Add your name to the guest book:</p>
-            <input id="guest-input" value="Enter your name"></input>
-            <button id="submit-button">Submit</button>
-            <br>
+            <form class="suscribe-form">
+                <label for="guest-email">Subscribe to our mailing list:</label>
+                <input id="guest-email" placeholder="Email" type="email" required>
+                <button id="submit-button" type="submit">Submit</button>
+            </form>
             <p id="thankyou"></p>
         </div>
     </footer>

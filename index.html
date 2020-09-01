@@ -28,20 +28,20 @@
         </div>
     </nav>
 
-    <header>
-        <h1>Stacy's Recipes!</h1>
-    </header>
-
     <main>
+        <header>
+            <h1>Stacy's Recipes!</h1>
+        </header>
+
         <div class="recipe">
             <h2>Tried-and-True Banana Bread</h2>
-            <a class="recipe-link" href="#">
+            <a class="recipe-link" href="recipes/bananabread.html">
                 <img src="images/banana-bread.jpg" class="img-link" alt="freshly baked banana bread" />
             </a>
         </div>
         <div class="recipe">
-            <h2>Bluberry Rosemary Scones</h2>
-            <a class="recipe-link" href="#">
+            <h2>Blueberry Rosemary Scones</h2>
+            <a class="recipe-link" href="recipes/blueberry-rosemary-scones.html">
                 <img src="images/scone-rosemary-blueberry.jpg" class="img-link"
                     alt="freshly baked blueberry rosemary scones" />
             </a>
@@ -49,10 +49,11 @@
     </main>
     <footer>
         <div class="guest-container">
-            <p>Add your name to the guest book:</p>
-            <input id="guest-input" value="Enter your name"></input>
-            <button id="submit-button">Submit</button>
-            <br>
+            <form class="suscribe-form">
+                <label for="guest-email">Subscribe to our mailing list:</label>
+                <input id="guest-email" placeholder="Email" type="email" required>
+                <button id="submit-button" type="submit">Submit</button>
+            </form>
             <p id="thankyou"></p>
         </div>
     </footer>
