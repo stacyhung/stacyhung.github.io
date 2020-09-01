@@ -372,6 +372,7 @@ Travelling page
     height: 275px;
     background-size: cover;
     background-position: center;
+    background-color: rebeccapurple; /* in case images don't load */
     color: white;
 }
 
