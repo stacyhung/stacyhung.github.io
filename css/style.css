@@ -75,10 +75,6 @@ button {
     cursor: pointer;
 }
 
-#thankyou {
-    font-style: italic;
-}
-
 /* ======================
 image links
 ========================= */
@@ -97,6 +93,10 @@ image links
     max-width: 800px;
     border: solid 10px plum;
     background-size: cover;
+}
+
+.game .img-link {
+    width: 300px;
 }
 
 /* ======================
@@ -363,7 +363,7 @@ Travelling page
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 32%;
+    /* width: 32%; */
     /* max-width: 300px; */
     /* min-width: 250px; */
     width: 300px;
