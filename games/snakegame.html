@@ -27,24 +27,35 @@
         </div>
     </nav>
 
-    <header>
-        <h1>Stacy's Snakegame</h1>
-    </header>
+    <main>
+        <header>
+            <h1>Stacy's Snakegame</h1>
+        </header>
+        <div class="container snakegame">
+            <div id="score-container">
+                <p>Score: <span id="score">0</span></p>
+            </div>
 
+            <div id="grid">
 
-    <div id="container">
-        <div id="score-container">
-            <p>Score: <span id="score">0</span></p>
+            </div>
+
+            <div id="btn-container">
+                <button id="start-btn">Start/Restart</button>
+            </div>
         </div>
+    </main>
 
-        <div id="grid">
-
+    <footer>
+        <div class="guest-container">
+            <form class="suscribe-form">
+                <label for="guest-email">Subscribe to our mailing list:</label>
+                <input id="guest-email" placeholder="Email" type="email" required>
+                <button id="submit-button" type="submit">Submit</button>
+            </form>
+            <p id="thankyou"></p>
         </div>
-
-        <div id="btn-container">
-            <button id="start-btn">Start/Restart</button>
-        </div>
-    </div>
+    </footer>
 
     <script src="snakegame.js"> </script>
 </body>
