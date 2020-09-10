@@ -52,8 +52,6 @@ const layout = [
 which is a 28x28 grid, where each grid square
 is a 15px by 15px square. */
 function createGrid() {
-
-    console.log("layout has " + layout.length + " squares");
     //for each square
     for (let i = 0; i < layout.length; i++) {
         // create square
@@ -76,6 +74,53 @@ function createGrid() {
 
 createGrid();
 
-// Starting position of pacman
+// Establishing starting position of pacman
 let pacmanCurrentIndex = 500;
 squares[pacmanCurrentIndex].classList.add('pacman');
+
+/* Attach key events to game control
+
+Recall keycodes: 
+    37 -> left
+    38 -> up
+    39 -> right
+    40 -> down
+
+For moving pacman (here width = 28):
+    - move left, as long as index % width != 0
+    - move right, as long as index % width != width - 1
+    - move down (by adding width), as long as index + width < width*width
+    - move up (by subtracting width), as long as index - width >= 0
+
+*/
+function control(e) {
+    // temporarily remove pacman's index so it can be updated when it moves
+    squares[pacmanCurrentIndex].classList.remove('pacman');
+
+    switch (e.keyCode) {
+        case 40:
+            console.log("pressed down");
+            if (pacmanCurrentIndex + width < width * width) {
+                pacmanCurrentIndex += width;
+            }
+            break;
+        case 39:
+            if (pacmanCurrentIndex % width != width - 1) {
+                pacmanCurrentIndex += 1;
+            }
+            break;
+        case 38:
+            if (pacmanCurrentIndex - width >= 0) {
+                pacmanCurrentIndex -= width;
+            }
+            break;
+        case 37:
+            if (pacmanCurrentIndex % width !== 0) {
+                pacmanCurrentIndex -= 1;
+            }
+            break;
+    }
+    // update pacman's index to where it will move
+    squares[pacmanCurrentIndex].classList.add('pacman');
+}
+document.addEventListener('keyup', control);
