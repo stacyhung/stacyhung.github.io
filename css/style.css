@@ -294,36 +294,34 @@ a:focus, a:active, a:hover {
 /* ======================
 Pacman game
 ========================= */
-/* 
 
-.pacman.container {
+#pacman-container {
     margin: 0 auto;
-    width: 420px;
+    width: 424px;
 }
 
-.pacman #grid {
+#pacman-grid {
     margin: 0 auto;
-    width: 420px;
-    height: 420px;
+    width: 424px;
+    height: 424px;
     display: flex;
     flex-wrap: wrap;
+    border: black solid 2px;
 }
 
-.pacman .square {
-    box-sizing: border-box;
+.pacman-square {
     width: 15px;
     height: 15px;
-    border: solid black 1px;
-    background-color: lawngreen;
+    /* border: solid black 1px; */
+    /* background-color: lawngreen; */
 } 
-*/
+
 
 /* ======================
 Snake game
 ========================= */
 
-.snakegame-container {
-    /* box-sizing: border-box; */
+#snakegame-container {
     margin: 0 auto;
     width: 504px;
     display: flex;
@@ -332,7 +330,6 @@ Snake game
 }
 
 #snakegame-grid {
-    padding: 0;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -349,14 +346,14 @@ Snake game
 }
 
 .snake {
-    background-color: purple;
-    background: repeating-linear-gradient(
+    background-color: #02594b;
+    /* background: repeating-linear-gradient(
   45deg,
   #25b07f,
   #25b07f 4px,
   #3e6356 4px,
   #3e6356 8px
-);
+); */
 }
 
 .apple {
@@ -368,13 +365,18 @@ Snake game
     height: 25px;
 }
 
-#snakegame-btn-container {
+/* ======================
+General games
+========================= */
+
+#snakegame-btn-container, #pacman-btn-container {
+    margin: 0 auto;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 10px;
 }
 
-#snakegame-start-btn {
+#snakegame-start-btn, #pacman-start-btn {
     padding: 1em;
     border-radius: 0.5em;
     background-color: lavender;
