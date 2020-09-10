@@ -297,16 +297,17 @@ Pacman game
 
 #pacman-container {
     margin: 0 auto;
-    width: 424px;
+    width: 430px;
 }
 
 #pacman-grid {
     margin: 0 auto;
-    width: 424px;
-    height: 424px;
+    width: 430px;
+    height: 430px;
     display: flex;
     flex-wrap: wrap;
-    border: black solid 2px;
+    border: black solid 5px;
+    background-color: black;
 }
 
 #pacman-grid div {
@@ -317,9 +318,31 @@ Pacman game
 } 
 
 .pac-dot {
-    box-sizing: border-box;
-    background-color: green;
-    border: white solid 3px;
+    background-color: #5ae096;
+    border: black solid 5px;
+    border-radius: 7.5px;
+}
+
+.wall {
+    background-color: #256ad9;
+}
+
+.power-pellet {
+    background-color: #5ae096;
+    border: black solid 2px;
+    border-radius: 7.5px;
+}
+
+.pacman {
+    background-color: yellow;
+    border: yellow solid;
+    border: black solid 2px;
+    border-radius: 7.5px;
+}
+
+.ghost-lair {
+    background-color: gray;
+    border-radius: 7.5px;
 }
 
 
@@ -329,7 +352,7 @@ Snake game
 
 #snakegame-container {
     margin: 0 auto;
-    width: 504px;
+    width: 508px;
     display: flex;
     flex-wrap: wrap;
     /* border: rebeccapurple solid 2px; */
@@ -339,15 +362,16 @@ Snake game
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 504px;
-    height: 504px;
-    border: black solid 2px;
+    width: 508px;
+    height: 508px;
+    border: black solid 4px;
+    background-color: #76d682;
 }
 
 .snakegame-square {
     width: 25px;
     height: 25px;
-    /* background-color: lawngreen; */
+    
     /* border: black solid 1px; */
 }
 
@@ -364,6 +388,7 @@ Snake game
 
 .apple {
     background-color: red;
+    border-radius: 12.5px;
 }
 
 .apple-img {

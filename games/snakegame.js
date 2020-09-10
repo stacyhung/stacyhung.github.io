@@ -10,10 +10,12 @@ let timerId = 0;
 let interval = 1000; // 1000ms or 1s
 let speed = 0.9 // increment ratio by which to decrease speed by
 let appleIndex = 0;
-let apple = document.createElement("img");
-apple.src = "../images/apple5.png";
-apple.alt = "cartoon apple";
-apple.classList.add('apple-img');
+// let apple = document.createElement("img");
+let apple = document.createElement("div");
+apple.classList.add('apple');
+// apple.src = "../images/apple5.png";
+// apple.alt = "cartoon apple";
+// apple.classList.add('apple-img');
 
 // create grid
 function createGrid() {

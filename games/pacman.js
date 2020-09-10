@@ -65,9 +65,17 @@ function createGrid() {
         //add styling depending on the layout
         if (layout[i] === 0) {
             squares[i].classList.add('pac-dot')
+        } else if (layout[i] === 1) {
+            squares[i].classList.add('wall');
+        } else if (layout[i] === 3) {
+            squares[i].classList.add('power-pellet');
         }
 
     }
 }
 
 createGrid();
+
+// Starting position of pacman
+let pacmanCurrentIndex = 500;
+squares[pacmanCurrentIndex].classList.add('pacman');
