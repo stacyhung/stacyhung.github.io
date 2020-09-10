@@ -65,10 +65,11 @@ function createGrid() {
             squares[i].classList.add('pac-dot')
         } else if (layout[i] === 1) {
             squares[i].classList.add('wall');
+        } else if (layout[i] === 2) {
+            squares[i].classList.add('ghost-lair');
         } else if (layout[i] === 3) {
             squares[i].classList.add('power-pellet');
         }
-
     }
 }
 
@@ -79,19 +80,19 @@ let pacmanCurrentIndex = 500;
 squares[pacmanCurrentIndex].classList.add('pacman');
 
 /* Attach key events to game control
-
+ 
 Recall keycodes: 
     37 -> left
     38 -> up
     39 -> right
     40 -> down
-
+ 
 For moving pacman (here width = 28):
     - move left, as long as index % width != 0
     - move right, as long as index % width != width - 1
     - move down (by adding width), as long as index + width < width*width
     - move up (by subtracting width), as long as index - width >= 0
-
+ 
 */
 function control(e) {
     // temporarily remove pacman's index so it can be updated when it moves
@@ -99,25 +100,29 @@ function control(e) {
 
     switch (e.keyCode) {
         case 40:
-            if (!(squares[pacmanCurrentIndex + width].classList.contains('wall')) &&
+            if (!(squares[pacmanCurrentIndex + width].classList.contains('ghost-lair')) &&
+                !(squares[pacmanCurrentIndex + width].classList.contains('wall')) &&
                 (pacmanCurrentIndex + width < width * width)) {
                 pacmanCurrentIndex += width;
             }
             break;
         case 39:
-            if (!(squares[pacmanCurrentIndex + 1].classList.contains('wall')) &&
+            if (!(squares[pacmanCurrentIndex + 1].classList.contains('ghost-lair')) &&
+                !(squares[pacmanCurrentIndex + 1].classList.contains('wall')) &&
                 (pacmanCurrentIndex % width != width - 1)) {
                 pacmanCurrentIndex += 1;
             }
             break;
         case 38:
-            if (!(squares[pacmanCurrentIndex - width].classList.contains('wall')) &&
+            if (!(squares[pacmanCurrentIndex - width].classList.contains('ghost-lair')) &&
+                !(squares[pacmanCurrentIndex - width].classList.contains('wall')) &&
                 (pacmanCurrentIndex - width >= 0)) {
                 pacmanCurrentIndex -= width;
             }
             break;
         case 37:
-            if (!(squares[pacmanCurrentIndex - 1].classList.contains('wall')) &&
+            if (!(squares[pacmanCurrentIndex - 1].classList.contains('ghost-lair')) &&
+                !(squares[pacmanCurrentIndex - 1].classList.contains('wall')) &&
                 (pacmanCurrentIndex % width !== 0)) {
                 pacmanCurrentIndex -= 1;
             }
