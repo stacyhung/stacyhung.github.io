@@ -309,12 +309,18 @@ Pacman game
     border: black solid 2px;
 }
 
-.pacman-square {
+#pacman-grid div {
     width: 15px;
     height: 15px;
     /* border: solid black 1px; */
     /* background-color: lawngreen; */
 } 
+
+.pac-dot {
+    box-sizing: border-box;
+    background-color: green;
+    border: white solid 3px;
+}
 
 
 /* ======================

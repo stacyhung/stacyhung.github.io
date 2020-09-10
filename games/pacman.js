@@ -56,13 +56,17 @@ function createGrid() {
     console.log("layout has " + layout.length + " squares");
     //for each square
     for (let i = 0; i < layout.length; i++) {
-        // add to grid
+        // create square
         const square = document.createElement('div');
-        // add to squares array for future access
-        square.classList.add('pacman-square');
+        // add square to grid
         grid.appendChild(square);
+        // add to squares array for future access
         squares.push(square);
-        console.log("Added " + i + "th square");
+        //add styling depending on the layout
+        if (layout[i] === 0) {
+            squares[i].classList.add('pac-dot')
+        }
+
     }
 }
 
