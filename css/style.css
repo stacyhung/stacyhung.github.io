@@ -294,6 +294,8 @@ a:focus, a:active, a:hover {
 /* ======================
 Pacman game
 ========================= */
+/* 
+
 .pacman.container {
     margin: 0 auto;
     width: 420px;
@@ -313,34 +315,37 @@ Pacman game
     height: 15px;
     border: solid black 1px;
     background-color: lawngreen;
-}
+} 
+*/
 
 /* ======================
 Snake game
 ========================= */
 
-.snakegame.container {
+.snakegame-container {
+    /* box-sizing: border-box; */
     margin: 0 auto;
-    width: 520px;
+    width: 504px;
+    display: flex;
+    flex-wrap: wrap;
     /* border: rebeccapurple solid 2px; */
 }
 
-#score-container {
-    padding-left: 10px;
-}
-
-.snakegame #grid {
-    margin: 0 auto;
-    width: 500px;
-    height: 500px;
-    border: black solid 2px;
+#snakegame-grid {
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
+    width: 504px;
+    height: 504px;
+    border: black solid 2px;
 }
 
-.square {
+.snakegame-square {
     width: 25px;
     height: 25px;
+    /* background-color: lawngreen; */
+    /* border: black solid 1px; */
 }
 
 .snake {
@@ -363,13 +368,13 @@ Snake game
     height: 25px;
 }
 
-#btn-container {
+#snakegame-btn-container {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 10px;
 }
 
-#start-btn {
+#snakegame-start-btn {
     padding: 1em;
     border-radius: 0.5em;
     background-color: lavender;

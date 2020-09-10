@@ -1,7 +1,7 @@
 let score = 0;
-let scoreDisplay = document.getElementById("score");
-let startBtn = document.getElementById("start-btn");
-let grid = document.getElementById("grid");
+let scoreDisplay = document.getElementById("snakegame-score");
+let startBtn = document.getElementById("snakegame-start-btn");
+let grid = document.getElementById("snakegame-grid");
 let width = 20; // each square should be 25 x 25px
 let direction = 1; // 1: right; -1: left; width: up; -width: down
 let squares = [];
@@ -21,7 +21,7 @@ function createGrid() {
         // create a new div representing a square in the grid
         let square = document.createElement("div");
         // add styling to the square
-        square.classList.add('square');
+        square.classList.add('snakegame-square');
         // add the square to the grid
         grid.appendChild(square);
         // add square to the squares array
