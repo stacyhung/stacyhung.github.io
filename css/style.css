@@ -324,7 +324,7 @@ Pacman game
 }
 
 .wall {
-    background-color: #256ad9;
+    background-color: #b7c0f7;
 }
 
 .power-pellet {
@@ -340,9 +340,30 @@ Pacman game
     border-radius: 7.5px;
 }
 
-.ghost-lair {
-    background-color: gray;
+/*.ghost-lair {
+    background-color: rgba(100, 100, 100, 0.5);
+    border: black solid 1.25px;
     border-radius: 7.5px;
+}*/
+
+.blinky {
+    background-color: red;
+    border: none;
+}
+
+.pinky {
+    background-color: pink;
+    border: none;
+}
+
+.inky {
+    background-color: blue;
+    border: none;
+}
+
+.clyde {
+    background-color: orange;
+    border: none;
 }
 
 
