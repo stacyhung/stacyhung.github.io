@@ -76,7 +76,7 @@ function createGrid() {
 createGrid();
 
 // Establishing starting position of pacman
-let pacmanCurrentIndex = 500;
+let pacmanCurrentIndex = 386;
 squares[pacmanCurrentIndex].classList.add('pacman');
 
 /* Attach key events to game control
@@ -139,6 +139,9 @@ function control(e) {
     // update pacman's index to where it will move
     squares[pacmanCurrentIndex].classList.add('pacman');
     eatPacDot();
+    eatPowerPellet();
+    checkForWin();
+    checkForGameOver();
 }
 document.addEventListener('keyup', control);
 
@@ -148,6 +151,26 @@ function eatPacDot() {
         scoreDisplay.textContent = score;
         squares[pacmanCurrentIndex].classList.remove('pac-dot');
     }
+}
+
+function eatPowerPellet() {
+    // if pacman is in square that contains power pellet
+    if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
+        // add 10 to score
+        score += 10;
+        scoreDisplay.textContent = score;
+        squares[pacmanCurrentIndex].classList.remove('power-pellet');
+
+        // change each of the ghosts to isScared
+        ghosts.forEach(ghost => ghost.isScared = true);
+
+        // use setTimeout to unscare ghosts after 10 seconds
+        setTimeout(unScareGhosts, 10000);
+    }
+}
+
+function unScareGhosts() {
+    ghosts.forEach(ghost => ghost.isScared = false);
 }
 
 class Ghost {
@@ -171,8 +194,8 @@ const ghosts = [
 
 //draw ghosts onto the grid
 ghosts.forEach(ghost => {
-    squares[ghost.startIndex].classList.add(ghost.className);
-    squares[ghost.startIndex].classList.add('ghost');
+    squares[ghost.currentIndex].classList.add(ghost.className);
+    squares[ghost.currentIndex].classList.add('ghost');
 });
 
 // move the ghosts
@@ -188,19 +211,64 @@ function moveGhost(ghost) {
         if (!squares[ghost.currentIndex + direction].classList.contains('wall') &&
             !squares[ghost.currentIndex + direction].classList.contains('ghost')) {
             // remove class ghost
-            squares[ghost.currentIndex].classList.remove(ghost.className);
-            squares[ghost.currentIndex].classList.remove('ghost');
+            squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost');
+            // squares[ghost.currentIndex].classList.remove('ghost');
             // update index
             ghost.currentIndex += direction;
             // re-add class ghost
-            squares[ghost.currentIndex].classList.add(ghost.className);
-            squares[ghost.currentIndex].classList.add('ghost');
+            squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
+            // squares[ghost.currentIndex].classList.add('ghost');
         } else {
             do {
                 direction = directions[Math.floor(Math.random() * directions.length)];
-            } while (squares[ghost.currentIndex + direction].classList.contains('wall') || squares[ghost.currentIndex + direction].classList.contains('ghost'))
+            } while (squares[ghost.currentIndex + direction].classList.contains('wall') ||
+                squares[ghost.currentIndex + direction].classList.contains('ghost'))
         }
 
+        // if ghost is scared
+        if (ghost.isScared) {
+            squares[ghost.currentIndex].classList.add('scared-ghost');
+        }
 
+        // if the ghost is currently scared and pacman is on it
+        if (ghost.isScared && squares[ghost.currentIndex].classList.contains('pacman')) {
+            // remove classnames - ghost.className, 'ghost', 'scared-ghost'
+            squares[pacmanCurrentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost');
+            // change ghost's currentIndex back to startIndex
+            ghost.currentIndex = ghost.startIndex;
+            // update score 
+            score += 100;
+            scoreDisplay.textContent = score;
+            // re-add class names of ghost.className and 'ghost' to the ghost's new position
+            squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
+        }
+        checkForGameOver();
     }, ghost.speed);
+}
+
+// check for game over
+function checkForGameOver() {
+    // if pacman is in square that contains ghost and does not contain a scared ghost
+    if (squares[pacmanCurrentIndex].classList.contains('ghost') &&
+        !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
+        // for each ghost, stop moving
+        ghosts.forEach(ghost => clearInterval(ghost.timerId));
+
+        // remove event listener from control function
+        document.removeEventListener('keyup', control);
+
+        // notify user that game is over
+        scoreDisplay.textContent = "Game over!";
+    }
+}
+// check for win
+function checkForWin() {
+    if (score > 20) {
+        // stop each ghost moving
+        ghosts.forEach(ghost => clearInterval(ghost.timerId));
+        // remove event listener for the control function
+        document.removeEventListener('keyup', control);
+        // notify the user of win
+        scoreDisplay.textContent = "You win!";
+    }
 }

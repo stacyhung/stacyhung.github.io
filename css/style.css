@@ -340,30 +340,34 @@ Pacman game
     border-radius: 7.5px;
 }
 
-/*.ghost-lair {
-    background-color: rgba(100, 100, 100, 0.5);
-    border: black solid 1.25px;
-    border-radius: 7.5px;
-}*/
-
 .blinky {
     background-color: red;
     border: none;
+    border-radius: 0;
 }
 
 .pinky {
     background-color: pink;
     border: none;
+    border-radius: 0;
 }
 
 .inky {
     background-color: blue;
     border: none;
+    border-radius: 0;
 }
 
 .clyde {
     background-color: orange;
     border: none;
+    border-radius: 0;
+}
+
+.scared-ghost {
+    background-color: #e1e4f5;
+    border: none;
+    border-radius: 0;
 }
 
 
