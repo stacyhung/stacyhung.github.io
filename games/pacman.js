@@ -155,11 +155,14 @@ class Ghost {
         this.className = className;
         this.startIndex = startIndex;
         this.speed = speed;
+        this.currentIndex = startIndex;
+        this.isScared = false;
+        this.timerId = NaN;
     }
 
 }
 
-let ghosts = [
+const ghosts = [
     new Ghost('blinky', 348, 250),
     new Ghost('pinky', 376, 400),
     new Ghost('inky', 351, 300),
@@ -169,4 +172,35 @@ let ghosts = [
 //draw ghosts onto the grid
 ghosts.forEach(ghost => {
     squares[ghost.startIndex].classList.add(ghost.className);
+    squares[ghost.startIndex].classList.add('ghost');
 });
+
+// move the ghosts
+ghosts.forEach(ghost => moveGhost(ghost));
+
+function moveGhost(ghost) {
+    console.log('moved ghost');
+    const directions = [1, -1, width, -width];
+    let direction = directions[Math.floor(Math.random() * directions.length)];
+    // console.log(direction);
+
+    ghost.timerId = setInterval(function () {
+        if (!squares[ghost.currentIndex + direction].classList.contains('wall') &&
+            !squares[ghost.currentIndex + direction].classList.contains('ghost')) {
+            // remove class ghost
+            squares[ghost.currentIndex].classList.remove(ghost.className);
+            squares[ghost.currentIndex].classList.remove('ghost');
+            // update index
+            ghost.currentIndex += direction;
+            // re-add class ghost
+            squares[ghost.currentIndex].classList.add(ghost.className);
+            squares[ghost.currentIndex].classList.add('ghost');
+        } else {
+            do {
+                direction = directions[Math.floor(Math.random() * directions.length)];
+            } while (squares[ghost.currentIndex + direction].classList.contains('wall') || squares[ghost.currentIndex + direction].classList.contains('ghost'))
+        }
+
+
+    }, ghost.speed);
+}
