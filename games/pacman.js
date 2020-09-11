@@ -111,6 +111,9 @@ function control(e) {
                 !(squares[pacmanCurrentIndex + 1].classList.contains('wall')) &&
                 (pacmanCurrentIndex % width != width - 1)) {
                 pacmanCurrentIndex += 1;
+                if (pacmanCurrentIndex === 391) {
+                    pacmanCurrentIndex = 364;
+                }
             }
             break;
         case 38:
@@ -125,6 +128,10 @@ function control(e) {
                 !(squares[pacmanCurrentIndex - 1].classList.contains('wall')) &&
                 (pacmanCurrentIndex % width !== 0)) {
                 pacmanCurrentIndex -= 1;
+                // handle shortcut for pacman
+                if (pacmanCurrentIndex === 364) {
+                    pacmanCurrentIndex = 391;
+                }
             }
             break;
     }
