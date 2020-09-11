@@ -111,6 +111,7 @@ function control(e) {
                 !(squares[pacmanCurrentIndex + 1].classList.contains('wall')) &&
                 (pacmanCurrentIndex % width != width - 1)) {
                 pacmanCurrentIndex += 1;
+                // handle short for pacman
                 if (pacmanCurrentIndex === 391) {
                     pacmanCurrentIndex = 364;
                 }
@@ -137,5 +138,14 @@ function control(e) {
     }
     // update pacman's index to where it will move
     squares[pacmanCurrentIndex].classList.add('pacman');
+    eatPacDot();
 }
 document.addEventListener('keyup', control);
+
+function eatPacDot() {
+    if (squares[pacmanCurrentIndex].classList.contains('pac-dot')) {
+        score++;
+        scoreDisplay.textContent = score;
+        squares[pacmanCurrentIndex].classList.remove('pac-dot');
+    }
+}
