@@ -264,7 +264,7 @@ function checkForGameOver() {
 }
 // check for win
 function checkForWin() {
-    if (score > 20) {
+    if (score > 274) {
         // stop each ghost moving
         ghosts.forEach(ghost => clearInterval(ghost.timerId));
         // remove event listener for the control function
