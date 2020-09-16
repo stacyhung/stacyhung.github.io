@@ -3,6 +3,7 @@ const width = 28;
 const grid = document.getElementById('pacman-grid');
 const scoreDisplay = document.getElementById('pacman-score');
 const squares = [];
+const startBtn = document.getElementById('pacman-start-btn');
 
 /* First, create the layout, based on the following
  object mappings:
@@ -198,14 +199,14 @@ ghosts.forEach(ghost => {
     squares[ghost.currentIndex].classList.add('ghost');
 });
 
-// move the ghosts
-ghosts.forEach(ghost => moveGhost(ghost));
+function startGame() {
+    // move the ghosts
+    ghosts.forEach(ghost => moveGhost(ghost));
+}
 
 function moveGhost(ghost) {
-    console.log('moved ghost');
     const directions = [1, -1, width, -width];
     let direction = directions[Math.floor(Math.random() * directions.length)];
-    // console.log(direction);
 
     ghost.timerId = setInterval(function () {
         if (!squares[ghost.currentIndex + direction].classList.contains('wall') &&
@@ -272,3 +273,6 @@ function checkForWin() {
         scoreDisplay.textContent = "You win!";
     }
 }
+
+// event listener for start button
+startBtn.addEventListener('click', startGame);
