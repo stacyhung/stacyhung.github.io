@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Stacy Hung">
+    <title>Stacy's Recipe Page</title>
+    <link href="../css/style.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Bree+Serif&family=Dancing+Script:wght@500&family=Lobster&family=Pacifico&family=Architects+Daughter&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div id="nav-bar">
+            <div class="header">
+                <p id="title">Be Curious</p>
+                <p id="subtitle">Stacy's Blog</p>
+            </div>
+            <div class="nav-buttons">
+                <h3 class="nav-button"><a href="../index.html" class="current-page nav-link recipes-link">Recipes</a>
+                </h3>
+                <h3 class="nav-button"><a href="../travelling.html" class="nav-link travelling-link">Travelling</a></h3>
+                <h3 class="nav-button"><a href="../about.html" class="nav-link about-me-link">About Me</a></h3>
+                <h3 class="nav-button"><a href="../games.html" class="nav-link games-link">Games</a></h3>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Extra-fluffy Dairy-free Blueberry Pancakes</h1>
+        </header>
+
+        <div class="recipe-quick-summary">
+            <div class="recipe-metric">
+                <p class="recipe-measure">Yield</p>
+                <p class="recipe-value">8 pancakes</p>
+            </div>
+            <div class="recipe-metric">
+                <p class="recipe-measure">Time</p>
+                <p class="recipe-value">20 min</p>
+            </div>
+        </div>
+
+        <div class="recipe-container recipe-intro">
+            <img src="../images/blueberry_panckes.jpg" class="recipe-img"
+                alt="freshly baked blueberry rosemary scones" />
+            <p class="recipe-desc">These come fluffy and filled with blueberry deliciousness everytime!</p>
+        </div>
+        <div class="recipe-container recipe-main">
+            <div class="ingredients-container">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>1 1/2 cups all-purpose flour</li>
+                    <li>1 tbsp sugar</li>
+                    <li>1 tbsp baking powder</li>
+                    <li>1/2 tsp salt</li>
+                    <li>1 1/4 cup almond milk</li>
+                    <li>3 tbsp oil</li>
+                    <li>1 egg</li>
+                    <li>1 tsp vanilla extract</li>
+                    <li>1/2 cup frozen blueberries</li>
+                </ul>
+            </div>
+            <div class="instructions-container">
+                <h3>Preparation</h3>
+                <ol>
+                    <li>Whisk together dry ingredients.</li>
+                    <li>Add remaining ingredients and whisk until smooth. Mix in blueberries.</li>
+                    <li>In preheated skillet, coat with oil or butter.</li>
+                    <li>Pour in ~1/3 cup batter, and allow to cook until bubbles are visible throughout before flipping.
+                    </li>
+                    <li>Repeat until all batter has been used up. You may want to keep cooked pancakes warm in oven at
+                        200'F. Enjoy!</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="guest-container">
+            <form class="suscribe-form">
+                <label for="guest-email">Subscribe to our mailing list:</label>
+                <input id="guest-email" placeholder="Email" type="email" required>
+                <button id="submit-button" type="submit">Submit</button>
+            </form>
+            <p id="thankyou"></p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
