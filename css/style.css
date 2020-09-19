@@ -47,6 +47,18 @@ h2 {
     text-align: center;
 }
 
+.collage-element {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: column;
+    /* width: 300px; */
+}
+
 /* ======================
 Guest input
 ========================= */
@@ -79,24 +91,21 @@ button {
 image links
 ========================= */
 
-.recipe, .game {
+/* .recipe, .game {
     margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
-    /* max-height: 300px; */
-}
+    width: 300px;
+}  */
 
 .img-link {
-    width: 50%;
+    width: 300px;
+    height: 300px;
     min-width: 350px;
     max-width: 800px;
     border: solid 10px plum;
-    background-size: cover;
-}
-
-.game .img-link {
-    width: 300px;
+    background-size: contain;
 }
 
 /* ======================
@@ -125,6 +134,7 @@ Recipe page
     /* background-color: pink; */
 }
 
+/*image on the actual recipe page*/
 .recipe-img {
     width: 80%;
     max-height: 300px;
@@ -194,11 +204,20 @@ Links
 
 .img-link, 
 .trip-link {
+    width: 300px;
     border: solid 10px plum;
     transform: scale(1);
     transition: transform 250ms;
-    
+    object-fit: cover;
 }
+
+.collage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
 
 /* ======================
 Navigation
@@ -272,7 +291,7 @@ a:focus, a:active, a:hover {
     color: plum;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 780px) {
     #nav-bar {
         /* background-color: blue; */
         flex-direction: column;
@@ -297,6 +316,10 @@ a:focus, a:active, a:hover {
         margin: 0;
         /* padding-bottom: 0.2em; */
         /* background-color: palegreen; */
+    }
+
+    .collage {
+        flex-direction: column;
     }
 }
 
@@ -450,13 +473,6 @@ General games
 /* ======================
 Travelling page
 ========================= */
-
-.trip-collage {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-}
 
 .trip-link {
     display: flex;
