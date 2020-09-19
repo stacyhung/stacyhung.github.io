@@ -91,25 +91,16 @@ button {
 image links
 ========================= */
 
-/* .recipe, .game {
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}  */
-
 .img-link {
-    width: 300px;
-    height: 300px;
-    min-width: 350px;
+    width: 350px;
+    height: 350px;
     max-width: 800px;
     border: solid 10px plum;
     background-size: contain;
 }
 
 /* ======================
-Recipe page
+Recipe pages
 ========================= */
 
 .recipe-quick-summary {
@@ -128,10 +119,7 @@ Recipe page
 .recipe-metric {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: baseline;
-    /* width: 135px; */
-    /* background-color: pink; */
 }
 
 /*image on the actual recipe page*/
@@ -170,9 +158,6 @@ Recipe page
 }
 
 @media (min-width: 600px) {
-    /* .recipe {
-        flex-direction: row;
-    } */
 
     .recipe-container {
         flex-direction: row;
@@ -204,7 +189,7 @@ Links
 
 .img-link, 
 .trip-link {
-    width: 300px;
+    /* width: 300px; */
     border: solid 10px plum;
     transform: scale(1);
     transition: transform 250ms;
@@ -227,7 +212,6 @@ Navigation
     display: flex;
     flex-direction: column;
     justify-items: center;
-    /* align-items: center; */
     margin: auto 0;
     padding-left: 20px;
     /* background-color: pink; */
@@ -245,7 +229,6 @@ Navigation
     margin: 0;
     font-size: 16px;
     font-family: 'Architects Daughter', cursive;
-    /* padding-bottom: 15px; */
     text-transform: uppercase;
     color: orange;
     /* background-color: blueviolet; */
@@ -314,7 +297,6 @@ a:focus, a:active, a:hover {
     .nav-button {
         padding: 0.2em;
         margin: 0;
-        /* padding-bottom: 0.2em; */
         /* background-color: palegreen; */
     }
 
@@ -345,8 +327,6 @@ Pacman game
 #pacman-grid div {
     width: 15px;
     height: 15px;
-    /* border: solid black 1px; */
-    /* background-color: lawngreen; */
 } 
 
 .pac-dot {
@@ -478,9 +458,6 @@ Travelling page
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* width: 32%; */
-    /* max-width: 300px; */
-    /* min-width: 250px; */
     width: 300px;
     margin: 20px;
     padding: 20px 30px;
