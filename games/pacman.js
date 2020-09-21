@@ -202,6 +202,8 @@ ghosts.forEach(ghost => {
 function startGame() {
     // move the ghosts
     ghosts.forEach(ghost => moveGhost(ghost));
+
+    // reset everything - this needs to be sussed out - trickier than you think
 }
 
 function moveGhost(ghost) {
@@ -213,17 +215,13 @@ function moveGhost(ghost) {
             !squares[ghost.currentIndex + direction].classList.contains('ghost')) {
             // remove class ghost
             squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost');
-            // squares[ghost.currentIndex].classList.remove('ghost');
             // update index
             ghost.currentIndex += direction;
             // re-add class ghost
             squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
-            // squares[ghost.currentIndex].classList.add('ghost');
         } else {
-            do {
-                direction = directions[Math.floor(Math.random() * directions.length)];
-            } while (squares[ghost.currentIndex + direction].classList.contains('wall') ||
-                squares[ghost.currentIndex + direction].classList.contains('ghost'))
+
+            direction = directions[Math.floor(Math.random() * directions.length)];
         }
 
         // if ghost is scared
@@ -264,7 +262,26 @@ function checkForGameOver() {
 }
 // check for win
 function checkForWin() {
-    if (score > 274) {
+
+    let isFoodAvailable = false;
+
+    /*For a proper win, we should check every square and make
+     sure there are no more power pellets and pac-dots*/
+
+    // Solution 1 (check each square):
+    squares.forEach(square => {
+        if (square.classList.contains('pac-dot') || square.classList.contains('power-pellet')) {
+            isFoodAvailable = true;
+        }
+    });
+
+    // Solution 2 (more efficient):
+    let isPacFoodAvail = document.querySelector('.pac-dot') || document.querySelector('.power-pellet') || false;
+
+    // For now, we just check for a high score
+    // if (score > 274) {
+    // if (!isFoodAvailable) {
+    if (!isPacFoodAvail) {
         // stop each ghost moving
         ghosts.forEach(ghost => clearInterval(ghost.timerId));
         // remove event listener for the control function
