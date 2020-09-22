@@ -52,11 +52,9 @@ h2 {
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: center;
-
     margin: 0 auto;
     text-align: center;
     flex-direction: column;
-    /* width: 300px; */
 }
 
 /* ======================
@@ -94,7 +92,7 @@ image links
 .img-link {
     width: 350px;
     height: 350px;
-    max-width: 800px;
+    margin: 0 20px;
     border: solid 10px plum;
     background-size: contain;
 }
@@ -131,7 +129,7 @@ Recipe pages
 }
 
 .recipe-desc {
-    margin: 1.5rem;
+    margin: 0 1.5rem;
     width: 80%;
     font-style: italic;
     line-height: 1.35em;
@@ -155,6 +153,14 @@ Recipe pages
     font-size: 1.25rem;
     font-family: 'Bree Serif', serif;
     letter-spacing: 0.04em;
+}
+
+.instructions-container li {
+    margin: 0.6em 0;
+}
+
+.ingredients-container li {
+    margin: 0.2em 0;
 }
 
 @media (min-width: 600px) {
@@ -458,10 +464,10 @@ Travelling page
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 300px;
+    width: 340px; /* actual width is 300px in border-box */
+    height: 340px; /* actual height is 300px in border-box */
     margin: 20px;
     padding: 20px 30px;
-    height: 275px;
     background-size: cover;
     background-position: center;
     background-color: #b0b0b0; /* in case images don't load and to darken image when it does load */
