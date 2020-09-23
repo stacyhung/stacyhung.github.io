@@ -3,6 +3,7 @@ let newJokeBtn = document.getElementById('new-joke-btn');
 let punchlineBtn = document.getElementById('punchline-btn');
 let jokeSetupDiv = document.getElementById('joke-setup');
 let jokePunchlineDiv = document.getElementById('joke-punchline');
+let jokePunchline = "";
 
 // Event listener for new joke button
 newJokeBtn.addEventListener('click', getJoke);
@@ -26,7 +27,10 @@ async function getJoke() {
 
     // extract the different parts of the joke
     let jokeSetup = joke[0].setup;
-    let jokePunchline = joke[0].punchline;
+    jokePunchline = joke[0].punchline;
+
+    // clear display of punchline for previous joke (if there was one)
+    jokePunchlineDiv.innerHTML = "";
 
     // display the joke
     jokeSetupDiv.innerHTML = jokeSetup;
@@ -44,6 +48,7 @@ This function performs the following tasks:
 */
 function getPunchline() {
     // Display the punchline text on the page
+    jokePunchlineDiv.innerHTML = jokePunchline;
 
     // Show the bubble that goes around the text
 
