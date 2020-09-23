@@ -13,9 +13,7 @@ const startBtn = document.getElementById('pacman-start-btn');
     2 - ghost lair
     3 - powerpellets
     4 - empty 
-
  */
-
 const layout = [
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
@@ -46,8 +44,6 @@ const layout = [
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ];
-
-
 
 /* Next, create the play board for the game, 
 which is a 28x28 grid, where each grid square
@@ -220,7 +216,6 @@ function moveGhost(ghost) {
             // re-add class ghost
             squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
         } else {
-
             direction = directions[Math.floor(Math.random() * directions.length)];
         }
 
