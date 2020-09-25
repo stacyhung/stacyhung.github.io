@@ -207,6 +207,7 @@ Links
     flex-wrap: wrap;
     justify-content: space-evenly;
     text-align: center;
+    align-items: center;
 }
 
 
@@ -539,6 +540,10 @@ Travelling page
 Carousel for individual travelling page
 ========================= */
 
+.carousel {
+    position: relative;
+}
+
 .carousel-item {
     display: none;
 }
@@ -552,10 +557,7 @@ Carousel for individual travelling page
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.carousel {
-    position: relative;
+    
 }
 
 .carousel-actions button {
@@ -577,7 +579,7 @@ Carousel for individual travelling page
     left: 5.5%;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 1;
 }
 
 #btn-next {
@@ -585,5 +587,5 @@ Carousel for individual travelling page
     right: 5.5%;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 1;
 }
