@@ -1,7 +1,7 @@
 /* ======================
 Layout and typography
 ========================= */
-* {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -440,6 +440,43 @@ Snake game
 }
 
 /* ======================
+Bits + Bytes
+========================= */
+
+#joke-setup,
+#joke-punchline {
+    width: 300px;
+    height: 100px;
+    border: rebeccapurple solid 1px;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 15px;
+}
+
+.setup, .punchline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#new-joke-btn,
+#punchline-btn {
+    color: rebeccapurple;
+    font-size: 1.2em;
+    background-color: plum;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+#new-joke-btn:hover,
+#punchline-btn:hover,
+#new-joke-btn:focus,
+#punchline-btn:focus {
+    background-color: #f2d3ed;
+}
+
+/* ======================
 General games
 ========================= */
 
@@ -496,4 +533,57 @@ Travelling page
 
 .yukon-pic {
     background-image: url(../images/yukon/IMG_0209.jpg);
+}
+
+/* ======================
+Carousel for individual travelling page
+========================= */
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item img {
+    width: 90%;
+    max-width: 800px;
+}
+
+.carousel-item-visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel-actions button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-actions button:hover,
+.carousel-actions button:focus {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#btn-prev {
+    position: absolute;
+    left: 5.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+#btn-next {
+    position: absolute;
+    right: 5.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
 }
