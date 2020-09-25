@@ -20,24 +20,28 @@ This function performs the following tasks:
     5. toggle buttons (i.e. hide get new joke button and show get punchline button)
 */
 async function getJoke() {
-    // read in the random joke
-    let response = await fetch('https://official-joke-api.appspot.com/jokes/programming/random');
-    let joke = await response.json();
-    console.log(joke);
+    try {
+        // read in the random joke
+        let response = await fetch('https://official-joke-api.appspot.com/jokes/programming/random');
+        let joke = await response.json();
+        console.log(joke);
 
-    // extract the different parts of the joke
-    let jokeSetup = joke[0].setup;
-    jokePunchline = joke[0].punchline;
+        // extract the different parts of the joke
+        let jokeSetup = joke[0].setup;
+        jokePunchline = joke[0].punchline;
 
-    // clear display of punchline for previous joke (if there was one)
-    jokePunchlineDiv.innerHTML = "";
+        // clear display of punchline for previous joke (if there was one)
+        jokePunchlineDiv.innerHTML = "";
 
-    // display the joke
-    jokeSetupDiv.innerHTML = jokeSetup;
+        // display the joke
+        jokeSetupDiv.innerHTML = jokeSetup;
 
-    // hide joke button (toggle .hidden style)
+        // hide joke button (toggle .hidden style)
 
-    // show punchline button (toggle .hidden style)
+        // show punchline button (toggle .hidden style)
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 /*
