@@ -19,7 +19,6 @@ main {
     justify-content: space-between;
 }
 
-
 body, p {
     font-family: 'Roboto', sans-serif;
 }
@@ -55,6 +54,115 @@ h2 {
     margin: 0 auto;
     text-align: center;
     flex-direction: column;
+}
+
+/* ======================
+Navigation
+========================= */
+
+.header, #logo-link {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: auto 0;
+    padding-left: 20px;
+    /* background-color: pink; */
+    transform: scale(1);
+    transition: transform 250ms;
+}
+
+.header:hover, 
+.header:focus {
+    transform: scale(1.05);
+}
+
+#title {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: #f5df38;
+    /* background-color: blue; */
+}
+
+#subtitle {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Architects Daughter', cursive;
+    text-transform: uppercase;
+    color: orange;
+    /* background-color: blueviolet; */
+}
+
+#nav-bar {
+    background-color: rebeccapurple;
+    font-family: 'Bree Serif', serif;
+    /* font-size: 1.175rem; */
+    font-size: 1.15rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4em;
+    padding-right: 2em;
+    /* background-color: blue; */
+}
+
+.nav-button {
+    padding: 0 1em;
+    text-align: center;
+}
+
+.current-page {
+    border-bottom: solid 2px seashell;
+    padding: 0.15em 0;
+}
+
+.current-page:hover {
+    color: lavender;
+}
+
+a:link, a:visited {
+    color: lavender;
+    text-decoration: none;
+}
+
+a:focus, a:active, a:hover {
+    color: plum;
+}
+
+@media (max-width: 800px) {
+    #nav-bar {
+        /* background-color: blue; */
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 0;
+    }
+
+    .header {
+        text-align: center;
+        padding: 0;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        padding: 0;
+        height: 100%;
+    }
+
+    .nav-button {
+        padding: 0.2em;
+        margin: 0;
+        /* background-color: palegreen; */
+    }
+
+    .collage {
+        flex-direction: column;
+    }
 }
 
 /* ======================
@@ -96,6 +204,27 @@ image links
     border: solid 10px plum;
     background-size: contain;
 }
+
+/* ======================
+Main page
+========================= */
+#main-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#profile-pic {
+    transform: rotateY(180deg);
+    margin: 100px;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: right;
+    border-radius: 50%;
+}
+
 
 /* ======================
 Recipe pages
@@ -211,106 +340,6 @@ Links
 }
 
 
-/* ======================
-Navigation
-========================= */
-
-.header {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    margin: auto 0;
-    padding-left: 20px;
-    /* background-color: pink; */
-}
-
-#title {
-    margin: 0;
-    font-family: 'Dancing Script', cursive;
-    font-size: 30px;
-    color: #f5df38;
-    /* background-color: blue; */
-}
-
-#subtitle {
-    margin: 0;
-    font-size: 16px;
-    font-family: 'Architects Daughter', cursive;
-    text-transform: uppercase;
-    color: orange;
-    /* background-color: blueviolet; */
-}
-
-#nav-bar {
-    background-color: rebeccapurple;
-    font-family: 'Bree Serif', serif;
-    font-size: 1.175rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.nav-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4em;
-    padding-right: 2em;
-    /* background-color: blue; */
-}
-
-.nav-button {
-    padding: 0 1em;
-    text-align: center;
-}
-
-.current-page {
-    border-bottom: solid 2px seashell;
-    padding: 0.15em 0;
-}
-
-.current-page:hover {
-    color: lavender;
-}
-
-a:link, a:visited {
-    color: lavender;
-    text-decoration: none;
-}
-
-a:focus, a:active, a:hover {
-    color: plum;
-}
-
-@media (max-width: 780px) {
-    #nav-bar {
-        /* background-color: blue; */
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1em 0;
-    }
-
-    .header {
-        text-align: center;
-        padding: 0;
-    }
-
-    .nav-buttons {
-        flex-direction: column;
-        padding: 0;
-        height: 100%;
-    }
-
-    .nav-button {
-        padding: 0.2em;
-        margin: 0;
-        /* background-color: palegreen; */
-    }
-
-    .collage {
-        flex-direction: column;
-    }
-}
 
 /* ======================
 Pacman game
@@ -478,7 +507,7 @@ Bits + Bytes
 }
 
 /* ======================
-General games
+General layout for projects
 ========================= */
 
 #snakegame-btn-container, #pacman-btn-container {
