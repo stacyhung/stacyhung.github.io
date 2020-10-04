@@ -13,7 +13,7 @@
 <body>
     <nav>
         <div id="nav-bar">
-            <a href="index.html" id="logo-link">
+            <a href="../index.html" id="logo-link">
                 <div class="header">
                     <p id="title">Be Curious</p>
                     <p id="subtitle">Stacy's Blog</p>
@@ -32,10 +32,23 @@
 
     <main>
         <header>
-            <h1>Jeopardy</h1>
+            <h1>This is Jeopardy! (The Stacy version)</h1>
         </header>
 
+        <!--Set up a grid of 6 x 6
+            First row is headers, containing random categories
+            Second row is $200 questions
+            Then $400, $600, $800, and $1000
+            Contestant picks category + $value
+         -->
 
+        <div class="trivia-container">
+            <div id="value"></div>
+            <div class="text-container" id="question"></div>
+            <button id="get-question-btn">Random Clue</button>
+            <div class="text-container" id="answer"></div>
+            <button id="get-answer-btn">Get answer</button>
+        </div>
 
     </main>
 
@@ -49,7 +62,7 @@
         </div>
     </footer>
 
-    <script src="bits-and-bytes.js"> </script>
+    <script src="jeopardy.js"> </script>
     <script src="../index.js"></script>
 
 </body>
