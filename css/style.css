@@ -240,6 +240,10 @@ Main page
 About me
 ========================= */
 
+.main-container {
+    max-width: 1000px;
+}
+
 .content-container {
     margin: 2em;
     
@@ -251,23 +255,12 @@ About me
     line-height: 1.4em;
 }
 
-/* .main-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-} */
-
-/* .about .content-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-} */
-
 #CV {
     color: rebeccapurple;
 }
 
 .about img {
+    margin-top: 40px;
     width: 100%;
     height: 200px;
     object-fit: cover;
