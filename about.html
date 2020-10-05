@@ -6,11 +6,15 @@
     <title>About Me</title>
     <link href="css/style.css" rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Dancing+Script:wght@500&family=Lobster&family=Pacifico&family=Architects+Daughter&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Bree+Serif&family=Dancing+Script:wght@500&family=Lobster&family=Pacifico&family=Architects+Daughter&display=swap"
         rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
 </head>
 
-<body>
+<body class="about">
     <nav>
         <div id="nav-bar">
             <a href="index.html" id="logo-link">
@@ -29,16 +33,36 @@
         </div>
     </nav>
 
-    <main>
-        <header>
-            <h1>About Me</h1>
-        </header>
+    <main class="about">
+
+        <div class="about main-container">
+
+            <div class="photo-container">
+                <img src="images/IMG_7200-EFFECTS.jpg" alt="me" />
+
+            </div>
+
+            <div class="content-container">
+                <h1>Hi, I'm Stacy!</h1>
+                <p class="about-me">
+                    I love exploring the world and building things in the kitchen and on the web! I hope this can be a
+                    fun
+                    spot to visit where you can learn
+                    something new, help plan out your next activity, or just chill out! Professionally, I'm a
+                    bioinformatics
+                    scientist who recently discovered an untapped passion for web design and development. Here's my
+                    outlet -
+                    enjoy!
+                </p>
+            </div>
+        </div>
+
     </main>
 
     <footer>
         <div class="guest-container">
             <form id="suscribe-form">
-                <label for="guest-email">Subscribe to our mailing list:</label>
+                <label for="guest-email">Subscribe to my mailing list:</label>
                 <input name="email-address" id="guest-email" placeholder="Email" type="email" required>
                 <button id="submit-button" type="submit">Submit</button>
             </form>

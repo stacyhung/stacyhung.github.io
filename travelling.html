@@ -4,6 +4,7 @@
 <head>
     <title>Travelling</title>
     <link href="css/style.css" rel="stylesheet" />
+    <link href="css/hover-effect.css" rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Bree+Serif&family=Dancing+Script:wght@500&family=Lobster&family=Pacifico&family=Architects+Daughter&display=swap"
         rel="stylesheet">
@@ -33,37 +34,51 @@
             <h1>My travelling adventures!</h1>
         </header>
 
-        <div class="collage trip-collage">
+        <div class="grid">
 
-            <a href="travelling/new-zealand.html">
-                <div class="trip-link new-zealand-pic">
-                    <h2 class="trip-title">Three weeks in New Zealand</h3>
-                </div>
-            </a>
+            <figure class="effect-jazz">
+                <img src="images/new_zealand/IMG_3864.JPG" alt="" />
+                <figcaption>
+                    <h2>New Zealand</h2>
+                    <p>Three weeks driving from Auckland to Queenstown</p>
+                    <a href="travelling/new-zealand.html">View more</a>
+                </figcaption>
+            </figure>
 
-            <a href="travelling/japan.html">
-                <div class="trip-link japan-pic">
-                    <h2 class="trip-title">Two weeks in Japan</h3>
-                </div>
-            </a>
+            <figure class="effect-jazz">
+                <img src="images/japan/IMG_1391.JPG" alt="" />
+                <figcaption>
+                    <h2>Japan</h2>
+                    <p>Two weeks by shinkasen from Tokyo to Hiroshima and back</p>
+                    <a href="travelling/japan.html">View more</a>
+                </figcaption>
+            </figure>
 
-            <a href="travelling/iceland.html">
-                <div class="trip-link iceland-pic">
-                    <h2 class="trip-title">Two weeks in Iceland</h3>
-                </div>
-            </a>
+            <figure class="effect-jazz iceland">
+                <img src="images/iceland/2-6-Vestmannaeyjar-puffins.jpg" alt="" />
+                <figcaption>
+                    <h2>Iceland</h2>
+                    <p>Two weeks driving Ring Road including the Golden Circle</p>
+                    <a href="travelling/iceland.html">View more</a>
+                </figcaption>
+            </figure>
 
-            <a href="travelling/yukon.html">
-                <div class="trip-link yukon-pic">
-                    <h2 class="trip-title">Three days in the Yukon</h3>
-                </div>
-            </a>
+            <figure class="effect-jazz yukon">
+                <img src="images/yukon/IMG_0209.jpg" alt="" />
+                <figcaption>
+                    <h2>The Yukon</h2>
+                    <p>Three days snowbiking, dog-sledding, and watching the Northern Lights</p>
+                    <a href="travelling/yukon.html">View more</a>
+                </figcaption>
+            </figure>
+
         </div>
+
     </main>
     <footer>
         <div class="guest-container">
             <form id="suscribe-form">
-                <label for="guest-email">Subscribe to our mailing list:</label>
+                <label for="guest-email">Subscribe to my mailing list:</label>
                 <input name="email-address" id="guest-email" placeholder="Email" type="email" required>
                 <button id="submit-button" type="submit">Submit</button>
             </form>
