@@ -11,16 +11,17 @@ body {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    background: lavender;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: last baseline;
 }
 
 body, p {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Barlow', sans-serif;
 }
 
 .nav-buttons {
@@ -231,221 +232,57 @@ Main page
     transform: rotateY(180deg) scale(1.25);
 }
 
+#main-subtitle {
+    font-family: 'Dancing Script', cursive;
+}
+
 /* ======================
-Recipe main page
+About me
 ========================= */
 
-.grid {
-    margin: 40px auto 120px;
-    max-width: 1000px;
-    width: 90%;
-}
-
-.grid a {
-    float: left;
-    max-width: 250px;
-    width: 25%; /* Show up to 4 items in a row*/
-    color: #333;
-}
-
-/* Create offset for odd items */
-.grid a:nth-child(odd) {
-    margin: 30px 0 -30px 0;
-}
-
-.grid figure {
-    position: relative;
-    overflow: hidden;
-    margin: 5px;
-    background: #333;
-}
-
-/* On hover, animate the opacity with a transition */
-.grid figure img {
-    position: relative;
-    display: block;
-    object-fit: cover;
-    height: 400px;
-    width: 100%;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-.grid figcaption {
-    position: absolute;
-    top: 0;
-    z-index: 11;
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
-
-/* Add animation on hover for headline and paragraph */
-.grid figcaption h2 {
-    margin: 0 0 20px 0;
-    color: rebeccapurple;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
-    font-size: 130%;
-    transition: transform 0.3s;
-}
-
-.grid figcaption p {
-    padding: 0 20px;
-    color: #aaa;
-    font-weight: 300;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-.grid figcaption h2,
-.grid figcaption p {
-    transform: translateY(50px);
-}
-
-/* Styling and animation for the buttons */
-.grid figure button {
-    position: absolute;
-    padding: 4px 20px;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-.grid figcaption,
-.grid figcaption h2,
-.grid figcaption p,
-.grid figure button {
-    backface-visibility: hidden;
-}
-
-.grid svg {
-    position: absolute;
-    top: -1px; /* fixes rendering issue in FF */
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-}
-
-.grid svg path {
-    fill: #fff;
-}
-
-/* next three effects are optional hover effects:
-    - opacity of image is set to 1 while paragraph of captions slides up and disappears; headline will move up too
-*/
-.grid a:hover figure img {
-    opacity: 1;
-}
-
-.grid a:hover figcaption h2,
-.grid a:hover figcaption p {
-    transform: translateY(0);
-}
-
-.grid a:hover figcaption p {
-    opacity: 0;
-}
-
-/* Extra styling for the button - white border */
-body {
-    background: lavender;
-}
-
-.grid figure button {
-    top: 50%;
-    left: 50%;
-    border: 3px solid white;
-    background: transparent;
-    color: white;
-    opacity: 0;
-    transform: translateY(-50%) translateX(-50%) scale(0.25);
-}
-
-.grid a:hover figure button {
-    opacity: 1;
-    transform: translateY(-50%) translateX(-50%) scale(1);
-}
-
-@media screen and (max-width: 58em) {
-	.grid a {
-		width: 33.333%;
-	}
-
-	.grid a:nth-child(odd) {
-		margin: 0;
-	}
-
-	.grid a:nth-child(3n-1) {
-		margin: 30px 0 -30px 0;
-	}
-}
-
-/* For smaller screen, change number of items in a row:
-    - Reset width and margin of the odd children
-    - Anchors are the 2nd, 5th, 8th, 11th, etc.
-    - for very small sizes, adjust max-width and margins */
-
-@media screen and (max-width: 58em) {
-	.grid a {
-		width: 33.333%;
-	}
-
-	.grid a:nth-child(odd) {
-		margin: 0;
-	}
-
-	.grid a:nth-child(3n-1) {
-		margin: 30px 0 -30px 0;
-	}
-}
-
-@media screen and (max-width: 45em) {
-	.grid {
-		max-width: 500px;
-	}
-
-	.grid a {
-		width: 50%;
-	}
-
-	.grid a:nth-child(3n-1) {
-		margin: 0;
-	}
-
-	.grid a:nth-child(even) {
-		margin: 30px 0 -30px 0;
-	}
-
-	.grid figcaption h2 {
-		margin-bottom: 0px;
-		transform: translateY(30px);
-	}
-
-	.grid figcaption p {
-		margin: 0;
-		padding: 0 10px;
-	}
-}
-
-@media screen and (max-width: 27em) {
-	.grid {
-		max-width: 250px;
-	}
-
-	.grid a {
-		width: 100%;
-	}
-
-	.grid a:nth-child(even) {
-		margin: 0;
-	}
-}
-
+.content-container {
+    margin: 2em;
     
+}
+
+.content-container p {
+    font-size: 1.15em;
+    font-style: italic;
+    line-height: 1.4em;
+}
+
+/* .main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+} */
+
+/* .about .content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+#CV {
+    color: rebeccapurple;
+}
+
+.about img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+
+}
+
+main .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 0 auto;
+    /* background-color:teal; */
+}
+
 /* ======================
 Recipe pages
 ========================= */
