@@ -1,4 +1,18 @@
 /* ======================
+Variables
+========================= */
+
+:root{
+    --clr-dark: rebeccapurple;
+    --clr-secondary: plum;
+    --clr-tertiary: #f2d3ed;
+    --clr-light: lavender;
+    --ff-header: 'Bree Serif', serif;
+    --ff-fancy-header: 'Dancing Script', cursive;
+    --ff-primary: 'Barlow', sans-serif;
+}
+
+/* ======================
 Layout and typography
 ========================= */
 *, *::before, *::after {
@@ -11,7 +25,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
-    background: lavender;
+    background: var(--clr-light);
 }
 
 main {
@@ -21,7 +35,7 @@ main {
 }
 
 body, p {
-    font-family: 'Barlow', sans-serif;
+    font-family: var(--ff-primary);
 }
 
 .nav-buttons {
@@ -34,16 +48,15 @@ img {
 }
 
 h1 {
-    color: rebeccapurple;
-    font-family: 'Bree Serif', serif;
+    color: var(--clr-dark);
+    font-family: var(--ff-header);
     font-size: 2.65rem;
     text-align: center;
 }
 
 h2 {
-    color: rebeccapurple;
-    /* font-family: 'Dancing Script', cursive; */
-    font-family: 'Barlow', sans-serif;
+    color: var(--clr-dark);
+    font-family: var(--ff-primary);
     font-size: 2rem;
     text-align: center;
 }
@@ -68,9 +81,9 @@ Navigation
     justify-items: center;
     margin: auto 0;
     padding-left: 20px;
-    /* background-color: pink; */
     transform: scale(1);
     transition: transform 250ms;
+    /* background-color: pink; */
 }
 
 .header:hover, 
@@ -80,7 +93,7 @@ Navigation
 
 #title {
     margin: 0;
-    font-family: 'Dancing Script', cursive;
+    font-family: var(--ff-fancy-header);
     font-size: 30px;
     color: #f5df38;
     /* background-color: blue; */
@@ -96,9 +109,8 @@ Navigation
 }
 
 #nav-bar {
-    background-color: rebeccapurple;
-    font-family: 'Bree Serif', serif;
-    /* font-size: 1.175rem; */
+    background-color: var(--clr-dark);
+    font-family: var(--ff-header);
     font-size: 1.15rem;
     display: flex;
     justify-content: space-between;
@@ -119,30 +131,30 @@ Navigation
 }
 
 .current-page {
-    border-bottom: solid 2px seashell;
+    border-bottom: solid 2px var(--clr-light);
     padding: 0.15em 0;
 }
 
 .current-page:hover {
-    color: lavender;
+    color: var(--clr-light);
 }
 
 a:link, a:visited {
-    color: lavender;
+    color: var(--clr-light);
     text-decoration: none;
 }
 
 a:focus, a:active, a:hover {
-    color: plum;
+    color: var(--clr-secondary);
 }
 
 @media (max-width: 800px) {
     #nav-bar {
-        /* background-color: blue; */
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         padding: 1em 0;
+        /* background-color: blue; */
     }
 
     .header {
@@ -174,7 +186,7 @@ Guest input
 .guest-container {
     margin-top: 2rem;
     padding: 2rem;
-    background-color: lavender;
+    background-color: var(--clr-light);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,7 +215,7 @@ image links
     width: 350px;
     height: 350px;
     margin: 0 20px;
-    border: solid 10px plum;
+    border: solid 10px var(--clr-secondary);
     background-size: contain;
 }
 
@@ -233,7 +245,7 @@ Main page
 }
 
 #main-subtitle {
-    font-family: 'Dancing Script', cursive;
+    font-family: var(--ff-fancy-header);
 }
 
 /* ======================
@@ -256,7 +268,12 @@ About me
 }
 
 #CV {
-    color: rebeccapurple;
+    color: var(--clr-dark);
+}
+
+#CV:hover,
+#CV:focus {
+    color: var(--clr-secondary);
 }
 
 .about img {
@@ -330,7 +347,7 @@ Recipe pages
 .recipe-measure {
     text-transform: uppercase;
     font-size: 1.25rem;
-    font-family: 'Bree Serif', serif;
+    font-family: var(--ff-header);
     letter-spacing: 0.04em;
 }
 
@@ -368,14 +385,14 @@ Links
 .img-link:focus,
 .trip-link:hover,
 .trip-link:focus {
-    border: solid 10px #f2d3ed;
+    border: solid 10px var(--clr-tertiary);
     transform: scale(1.05);
 }
 
 .img-link, 
 .trip-link {
     /* width: 300px; */
-    border: solid 10px plum;
+    border: solid 10px var(--clr-secondary);
     transform: scale(1);
     transition: transform 250ms;
     object-fit: cover;
@@ -603,17 +620,30 @@ Bits + Bytes
 General layout for projects
 ========================= */
 
-#snakegame-btn-container, #pacman-btn-container {
+#snakegame-btn-container, 
+#pacman-btn-container {
     margin: 0 auto;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 10px;
 }
 
-#snakegame-start-btn, #pacman-start-btn {
+#snakegame-start-btn, 
+#pacman-start-btn {
     padding: 1em;
     border-radius: 0.5em;
-    background-color: lavender;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    font-weight: 400;
+    font-family: var(--ff-primary);
+    font-size: 1em;
+}
+
+#snakegame-start-btn:hover, 
+#snakegame-start-btn:focus,
+#pacman-start-btn:hover,
+#pacman-start-btn:focus {
+    background-color: var(--clr-secondary);
 }
 
 /* ======================
@@ -673,6 +703,9 @@ Carousel for individual travelling page
 .carousel-item img {
     width: 90%;
     max-width: 700px;
+    /* max-height: 600px; */
+    /* object-fit: cover; */
+    
 }
 
 .carousel-item-visible {
