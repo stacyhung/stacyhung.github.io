@@ -749,3 +749,215 @@ Carousel for individual travelling page
     0% { opacity: 0.6; }
     100% { opacity: 1; }
 }
+
+/* ======================
+To-do List app
+========================= */
+
+.todo-list-container {
+    --hover-opacity: 0.6;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 50px 100px;
+}
+
+.todo-list-container form {
+    display: flex;
+}
+
+.todo-list-container button {
+    cursor: pointer;
+    background: 0;
+    border: 0;
+}
+
+.btn.create {
+    font-size: 1.5em;
+    font-weight: 800;
+    padding: 0;
+    transition: opacity 250ms ease-in;
+}
+
+.btn.create:hover {
+    opacity: var(--hover-opacity);
+}
+
+.task-list {
+    line-height: 1.7;
+    font-size: 1rem;
+    /* padding: 1.1em; */
+}
+
+.list-item {
+    cursor: pointer;
+}
+
+.list-item:hover {
+    opacity: var(--hover-opacity);
+}
+
+.active-list {
+    font-weight: 700;
+}
+
+.new-input {
+    background: transparent;
+    border: 0;
+    border-bottom: solid 1px var(--clr-dark);
+    font-size: inherit;
+    font-family: var(--ff-primary);
+    transition: border-bottom 150ms ease-in;
+    order: 2;
+}
+
+.new-input:focus,
+.new-input:hover {
+    border-bottom-width: 3px;
+}
+
+.new-input:focus::placeholder,
+.new-input:hover::placeholder {
+    opacity: 0.3;
+}
+
+.all-tasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.all-tasks h2 {
+    margin: 0.5rem;
+}
+
+.todo-list {
+    --spacer: 1.5rem;
+
+    font-size: 1.3em;
+    background: white;
+    color: var(--clr-dark);
+    margin: 0;
+    width: 60%;
+    max-width: 600px;
+    /* padding: 10px; */
+}
+
+.todo-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: var(--spacer);
+}
+
+.todo-body {
+    padding: var(--spacer);
+}
+
+.todo-header, .todo-header * {
+    background: var(--clr-dark);
+    color: white;
+}
+
+.todo-header * {
+    padding: 0;
+    margin: 0;
+}
+
+.todo-title {
+    margin-right: 1em;
+}
+
+.task-count {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.delete-stuff * {
+    font-family: var(--ff-primary);
+    color: var(--clr-dark);
+}
+
+[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.task * {
+    margin: 0.4em;
+}
+
+.task label {
+    display: inline-flex; /* this will allow us to create a cross-out that is the length of the text */
+    cursor: pointer;
+    position: relative;
+}
+
+.task {
+    position: relative;
+}
+
+.task::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--clr-dark);
+    opacity: 0.2;
+}
+
+.custom-checkbox {
+    --size: 0.65em;
+    display: inline-block;
+    margin-right: 0.5em;
+    width: var(--size);
+    height: var(--size);
+    cursor: pointer;
+    border: 2px solid var(--clr-dark);
+    /* border-radius: 50%; */
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type="checkbox"]:focus + label .custom-checkbox {
+    transform: scale(1.2);
+    opacity: var(--hover-opacity);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+    background: var(--clr-dark);
+    border-color: var(--clr-dark);
+    box-shadow: inset 0 0 0 0.9px white;
+}
+
+/* When an item gets checked */
+[type="checkbox"]:checked + label {
+    opacity: 0.5;
+}
+
+/* When an item gets crossed off */
+.task label::after {
+    content: '';
+    position: absolute;
+    left: 1.5em;
+    right: 0;
+    bottom: 48%;
+    height: 2px;
+    background: var(--clr-dark);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 150ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
