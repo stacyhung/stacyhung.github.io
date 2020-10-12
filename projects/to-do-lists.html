@@ -57,48 +57,47 @@
 
             </div>
 
-            <div class="todo-list">
+            <div class="todo-list" data-list-display-container>
                 <div class="todo-header">
-                    <h2 class="todo-title">Web development</h2>
-                    <p class="task-count">3 tasks remaining</p>
+                    <h2 class="todo-title" data-list-title>Web development</h2>
+                    <p class="task-count" data-list-count>3 tasks remaining</p>
                 </div>
 
                 <div class="todo-body">
 
+                    <div class="tasks">
+                        <div class="task">
+                            <input type="checkbox" id="task-1" />
+                            <label for="task-1"><span class="custom-checkbox"></span>Learn about :root
+                                properties</label>
+                        </div><!-- / task1 -->
 
-                    <div class="task">
-                        <input type="checkbox" id="task-1" />
-                        <label for="task-1"><span class="custom-checkbox"></span>Learn about :root
-                            properties</label>
-                    </div><!-- / task1 -->
+                        <div class="task">
+                            <input type="checkbox" id="task-2" />
+                            <label for="task-2"><span class="custom-checkbox"></span>Learn about box shadow</label>
+                        </div> <!-- / task2 -->
 
-                    <div class="task">
-                        <input type="checkbox" id="task-2" />
-                        <label for="task-2"><span class="custom-checkbox"></span>Learn about box shadow</label>
-                    </div> <!-- / task2 -->
+                        <div class="task">
+                            <input type="checkbox" id="task-3" />
+                            <label for="task-3"><span class="custom-checkbox"></span>Learn about variables</label>
+                        </div><!-- / task3 -->
 
-                    <div class="task">
-                        <input type="checkbox" id="task-3" />
-                        <label for="task-3"><span class="custom-checkbox"></span>Learn about variables</label>
-                    </div><!-- / task3 -->
+                        <div class="new-task-creator">
+                            <form action="">
+                                <input type="text" class="new-input list" placeholder="new task name"
+                                    aria-label="new task name" />
+                                <button class="btn create" aria-label="create new task">+</button>
+                            </form>
+                        </div>
 
-                    <div class="new-task-creator">
-                        <form action="">
-                            <input type="text" class="new-input list" placeholder="new task name"
-                                aria-label="new task name" />
-                            <button class="btn create" aria-label="create new task">+</button>
-                        </form>
-                    </div>
+                        <div class="delete-stuff">
+                            <button class="btn delete">Clear completed tasks</button>
+                            <button class="btn delete" data-delete-list-button>Delete list</button>
 
-                    <div class="delete-stuff">
-                        <button class="btn delete">Clear completed tasks</button>
-                        <button class="btn delete" data-delete-list-button>Delete list</button>
-
+                        </div>
                     </div>
                 </div>
             </div>
-
-        </div>
 
     </main>
 

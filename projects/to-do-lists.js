@@ -2,6 +2,10 @@ const listsContainer = document.querySelector(".task-list");
 const newListForm = document.querySelector("[data-new-list-form]");
 const newListInput = document.querySelector("[data-new-list-input]");
 const deleteListBtn = document.querySelector("[data-delete-list-button]");
+const todoList = document.querySelector(".todo-list");
+const listTitle = document.querySelector(".todo-title");
+const taskCount = document.querySelector(".task-count");
+const tasks = document.querySelector(".tasks");
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'; // first key; prevents information from being overridden by our site or other sites
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
@@ -56,6 +60,21 @@ function save() {
 function render() {
     //E.g. list element in HTML: <li class="list-item">Work</li>
     clearElement(listsContainer);
+    renderLists();
+    const selectedList = lists.find(list => list.id === selectedListId);
+
+    //check for selected list
+    if (selectedListId == null) {
+        // don't display tasks
+        todoList.style.display = 'none';
+    } else {
+        // a list is selected
+        todoList.style.display = ''; //reset so that display is on again
+        listTitle.innerText = selectedList.name;
+    }
+}
+
+function renderLists() {
     lists.forEach(list => {
         const listElement = document.createElement('li');
         listElement.dataset.listId = list.id;
@@ -67,6 +86,7 @@ function render() {
         }
         listsContainer.appendChild(listElement);
     });
+
 }
 
 /* Clear the list to start */
