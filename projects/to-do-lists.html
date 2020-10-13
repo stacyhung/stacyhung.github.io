@@ -68,9 +68,8 @@
                     <div class="tasks">
                         <div class="task">
                             <input type="checkbox" id="task-1" />
-                            <label for="task-1"><span class="custom-checkbox"></span>Learn about :root
-                                properties</label>
-                        </div><!-- / task1 -->
+                            <label for="task-1"><span class="custom-checkbox"></span>Learn about :root</label>
+                        </div> <!-- / task1 -->
 
                         <div class="task">
                             <input type="checkbox" id="task-2" />
@@ -81,21 +80,22 @@
                             <input type="checkbox" id="task-3" />
                             <label for="task-3"><span class="custom-checkbox"></span>Learn about variables</label>
                         </div><!-- / task3 -->
-
-                        <div class="new-task-creator">
-                            <form action="">
-                                <input type="text" class="new-input list" placeholder="new task name"
-                                    aria-label="new task name" />
-                                <button class="btn create" aria-label="create new task">+</button>
-                            </form>
-                        </div>
-
-                        <div class="delete-stuff">
-                            <button class="btn delete">Clear completed tasks</button>
-                            <button class="btn delete" data-delete-list-button>Delete list</button>
-
-                        </div>
                     </div>
+
+                    <div class="new-task-creator">
+                        <form action="" data-new-task-form>
+                            <input data-new-task-input type="text" class="new-input list" placeholder="new task name"
+                                aria-label="new task name" />
+                            <button class="btn create" aria-label="create new task">+</button>
+                        </form>
+                    </div>
+
+                    <div class="delete-stuff">
+                        <button class="btn delete">Clear completed tasks</button>
+                        <button class="btn delete" data-delete-list-button>Delete list</button>
+
+                    </div>
+
                 </div>
             </div>
 
@@ -110,6 +110,13 @@
             </form>
         </div>
     </footer>
+
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox" />
+            <label><span class="custom-checkbox"></span></label>
+        </div>
+    </template>
 
     <script src="to-do-lists.js"> </script>
     <script src="../index.js"></script>
