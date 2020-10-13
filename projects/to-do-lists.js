@@ -9,6 +9,7 @@ const tasks = document.querySelector(".tasks");
 const taskTemplate = document.getElementById("task-template");
 const newTaskForm = document.querySelector("[data-new-task-form]");
 const newTaskInput = document.querySelector("[data-new-task-input]");
+const clearCompleteTaskBtn = document.querySelector("[data-clear-complete-tasks-button]");
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'; // first key; prevents information from being overridden by our site or other sites
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId';
@@ -36,7 +37,16 @@ tasks.addEventListener('click', e => {
         save();
         renderTaskCount(selectedList);
     }
-})
+});
+
+// When user clicks the "Clear completed tasks" button
+clearCompleteTaskBtn.addEventListener('click', e => {
+    // get the selected list
+    const selectedList = lists.find(list => list.id === selectedListId);
+    // refresh the task list with a new task list based on just the incomplete tasks
+    selectedList.tasks = selectedList.tasks.filter(task => !task.complete)
+    saveAndRender();
+});
 
 // When the user clicks the "Delete list" button
 deleteListBtn.addEventListener('click', e => {
@@ -129,6 +139,7 @@ function render() {
     }
 }
 
+// update task list
 function renderTasks(selectedList) {
     // loop through all our tasks
     selectedList.tasks.forEach(task => {
@@ -163,6 +174,7 @@ function renderTaskCount(selectedList) {
     taskCount.innerText = `${incompleteTaskCount} ${taskString} remaining`;
 }
 
+// update lists
 function renderLists() {
     lists.forEach(list => {
         const listElement = document.createElement('li');
