@@ -260,8 +260,11 @@ About me
 }
 
 .content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 2em;
-    
 }
 
 .content-container p {
@@ -270,13 +273,20 @@ About me
     line-height: 1.4em;
 }
 
-#CV {
-    color: var(--clr-dark);
+#resume-btn {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    font-family: var(--ff-primary);
+    font-size: 1.3em;
+    padding: 0.55em 0.95em;
+    border-radius: 0.45em;
+    margin-top: 2em;
 }
 
-#CV:hover,
-#CV:focus {
-    color: var(--clr-secondary);
+#resume-btn:hover,
+#resume-btn:focus {
+    background-color: var(--clr-secondary);
+    color: var(--clr-dark);
 }
 
 .about img {
