@@ -115,6 +115,8 @@ Navigation
     font-size: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 5em;
     margin-bottom: 2em;
 }
 
@@ -272,10 +274,12 @@ Blog pages
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: flex-start;
     width: 80%;
     height: auto;
-    margin: 0 4em;
+    margin: 0 auto;
+    /* border: solid 2px teal; */
 }
 
 .articles-container * ,
@@ -285,7 +289,8 @@ Blog pages
 }
 
 .articles-container p {
-    margin-bottom: 2em;
+    font-size: 1.3em;
+    font-weight: 300;
 }
 
 .article-date {
@@ -296,6 +301,7 @@ Blog pages
 .article-link:visited,
 .article-header {
     color: var(--clr-dark);
+    font-size: 1.5em;
 }
 
 .article-link:hover,
@@ -324,6 +330,12 @@ Blog pages
     font-size: inherit;
     font-weight: inherit;
     color: inherit;
+}
+
+.article-container h1 {
+    font-family: var(--ff-primary);
+    font-size: 3.2em;
+    font-weight: 900;
 }
 
 /* ======================
