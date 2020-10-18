@@ -190,7 +190,7 @@ function renderLists() {
 
 }
 
-/* Clear the list to start */
+/* Clear the list */
 function clearElement(element) {
     while (element.firstChild) {
         element.removeChild(element.firstChild);
