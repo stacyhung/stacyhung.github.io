@@ -116,7 +116,7 @@ Navigation
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5em;
+    height: auto;
     margin-bottom: 2em;
 }
 
@@ -154,6 +154,10 @@ a:focus, a:active, a:hover {
 
 /* Change layout of navigation bar for small screens */
 @media (max-width: 890px) {
+    .nav {
+        height: 5em;
+    }
+
     #nav-bar {
         flex-direction: column;
         justify-content: space-between;
@@ -165,6 +169,7 @@ a:focus, a:active, a:hover {
     .header {
         text-align: center;
         padding: 0;
+        /* background-color: blue; */
     }
 
     .nav-buttons {
@@ -302,6 +307,7 @@ Blog pages
 .article-header {
     color: var(--clr-dark);
     font-size: 1.5em;
+    font-weight: 600;
 }
 
 .article-link:hover,
