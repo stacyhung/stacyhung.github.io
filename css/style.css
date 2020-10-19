@@ -331,9 +331,8 @@ Blog pages
 }
 
 .article-container li,
-.article-container ol,
-.article-container a {
-    font-size: inherit;
+.article-container ol {
+    font-size: 1em;
     font-weight: inherit;
     color: inherit;
 }
@@ -341,7 +340,17 @@ Blog pages
 .article-container h1 {
     font-family: var(--ff-primary);
     font-size: 2.8em;
-    font-weight: 900;
+    font-weight: 800;
+}
+
+.within-article-link:link,
+.within-article-link:visited {
+    color: var(--clr-dark);
+}
+
+.within-article-link:hover,
+.within-article-link:focus {
+    color: var(--clr-secondary);
 }
 
 /* ======================
