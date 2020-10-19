@@ -35,6 +35,11 @@ main {
     justify-content: last baseline;
 }
 
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 body, p {
     font-family: var(--ff-primary);
 }
@@ -356,10 +361,6 @@ Blog pages
 /* ======================
 About me
 ========================= */
-
-.main-container {
-    max-width: 1000px;
-}
 
 .content-container {
     display: flex;
