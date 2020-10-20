@@ -151,10 +151,12 @@ Navigation
 a:link, a:visited {
     color: var(--clr-light);
     text-decoration: none;
+    
 }
 
 a:focus, a:active, a:hover {
     color: var(--clr-secondary);
+    transition: color 250ms ease-in-out;
 }
 
 /* Change layout of navigation bar for small screens */
@@ -518,7 +520,7 @@ Links
     /* width: 300px; */
     border: solid 10px var(--clr-secondary);
     transform: scale(1);
-    transition: transform 250ms;
+    transition: transform 300ms;
     object-fit: cover;
 }
 
@@ -738,6 +740,7 @@ Bits + Bytes
 #new-joke-btn:focus,
 #punchline-btn:focus {
     background-color: #f2d3ed;
+    transition: background-color 250ms ease-in-out;
 }
 
 /* ======================
@@ -768,6 +771,7 @@ General layout for projects
 #pacman-start-btn:hover,
 #pacman-start-btn:focus {
     background-color: var(--clr-secondary);
+    transition: background-color 250ms ease-in-out;
 }
 
 /* ======================
@@ -818,6 +822,8 @@ Carousel for individual travelling page
 
 .carousel {
     position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .carousel-item {
