@@ -47,7 +47,8 @@
 /* Add animation on hover for headline and paragraph */
 .grid figcaption h2 {
     margin: 0 0 20px 0;
-    color: rebeccapurple;
+    color: white;
+    /* color: rebeccapurple; */
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 400;
@@ -57,7 +58,8 @@
 
 .grid figcaption p {
     padding: 0 20px;
-    color: #aaa;
+    /* color: #aaa; */
+    color: #fcdbae;
     font-weight: 300;
     transition: opacity 0.3s, transform 0.3s;
 }
@@ -94,7 +96,8 @@
 }
 
 .grid svg path {
-    fill: #fff;
+    fill: rebeccapurple;
+    /* fill: #fff; */
 }
 
 /* next three effects are optional hover effects:

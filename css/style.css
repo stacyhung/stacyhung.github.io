@@ -6,7 +6,8 @@ Variables
     --clr-dark: rebeccapurple;
     --clr-secondary: plum;
     --clr-tertiary: #f2d3ed;
-    --clr-light: lavender;
+    /* --clr-light: lavender; */
+    --clr-light: white;
     --ff-header: 'Bree Serif', serif;
     --ff-fancy-header: 'Dancing Script', cursive;
     --ff-primary: 'Barlow', sans-serif;
@@ -26,7 +27,7 @@ body {
     align-content: flex-start;
     position: relative;
     min-height: 100vh;
-    background: var(--clr-light);
+    /* background: var(--clr-light); */
 }
 
 main {
@@ -140,16 +141,19 @@ Navigation
 }
 
 .current-page {
-    border-bottom: solid 2px var(--clr-light);
+    /* border-bottom: solid 2px var(--clr-light); */
+    border-bottom: solid 2px white;
     padding: 0.15em 0;
 }
 
 .current-page:hover {
-    color: var(--clr-light);
+    /* color: var(--clr-light); */
+    color: #fff;
 }
 
 a:link, a:visited {
-    color: var(--clr-light);
+    /* color: var(--clr-light); */
+    color: #fff;
     text-decoration: none;
     
 }
@@ -205,6 +209,7 @@ main {
 }
 
 footer {
+    display: none;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -532,6 +537,9 @@ Links
     align-items: center;
 }
 
+/* .project-link {
+    overflow: hidden;
+} */
 
 
 /* ======================
