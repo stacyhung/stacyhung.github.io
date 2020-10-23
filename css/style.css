@@ -11,6 +11,7 @@ Variables
     --ff-header: 'Bree Serif', serif;
     --ff-fancy-header: 'Dancing Script', cursive;
     --ff-primary: 'Barlow', sans-serif;
+    --ff-secondary: 'Source Sans Pro', sans-serif;
 }
 
 /* ======================
@@ -311,6 +312,7 @@ Blog pages
 }
 
 .article-date {
+    font-size: 1.4rem;
     opacity: 0.5;
 }
 
@@ -343,8 +345,9 @@ Blog pages
 }
 
 .article-container li,
-.article-container ol {
-    font-size: 1em;
+.article-container ol,
+.article-container p {
+    font-size: 1.1em;
     font-weight: inherit;
     color: inherit;
 }
