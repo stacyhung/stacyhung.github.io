@@ -6,10 +6,43 @@ const valueBox = document.getElementById('value');
 let answer = "";
 let value = "";
 
+let board = document.getElementById('board');
+
 /* Practice using APIs (and Promises with async / await)
 
 http://jservice.io/
 */
+
+
+/**
+ * Jeopardy (from Scrimba)
+ * 
+ * Board: 6 categories, 5 values --> 6x6 grid
+ * 
+ * Fetch data from https://jservice.io/api/categories
+ * Parameters: count (number of categories), and offset (starting point of categories)
+ */
+async function getCategories() {
+    let response = await fetch("http://jservice.io/api/categories?count=6&offset=4")
+    let data = await response.json();
+    return data;
+}
+
+function getCategoryHTML(category) {
+    return `
+        <div class="my-category-title">${category.title}</div>
+        <div class="my-category-clue">$200</div>
+        <div class="my-category-clue">$400</div>
+        <div class="my-category-clue">$600</div>
+        <div class="my-category-clue">$800</div>
+        <div class="my-category-clue">$1000</div>
+        `;
+}
+
+getCategories().then(categories => {
+    console.log(categories);
+    board.innerHTML = categories.map(getCategoryHTML).join('');
+})
 
 async function getQuestion() {
     try {

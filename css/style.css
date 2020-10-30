@@ -3,11 +3,13 @@ Variables
 ========================= */
 
 :root{
+    --clr-very-dark: #31175c;
     --clr-dark: rebeccapurple;
     --clr-secondary: plum;
     --clr-tertiary: #f2d3ed;
-    /* --clr-light: lavender; */
     --clr-light: white;
+    --clr-accent: #f5df38;
+
     --ff-header: 'Bree Serif', serif;
     --ff-fancy-header: 'Dancing Script', cursive;
     --ff-primary: 'Barlow', sans-serif;
@@ -103,7 +105,7 @@ Navigation
     margin: 0;
     font-family: var(--ff-fancy-header);
     font-size: 30px;
-    color: #f5df38;
+    color: var(--clr-accent);
     /* background-color: blue; */
 }
 
@@ -677,8 +679,49 @@ Snake game
 Jeopardy
 ========================= */
 
-.trivia-container {
+#board-container {
+    background-color: black;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1000px;
+    height: 40vh;
+    width: 95vw;
+    padding: 0.5rem;
+}
+
+#board {
+    background-color: var(--clr-dark);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-auto-flow: column;
+    height: 100%;
+}
+
+#board * {
     display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--ff-secondary);
+    font-weight: 600;
+    border: solid black 0.25rem;    
+    text-align: center;
+}
+
+.my-category-clue {
+    color: var(--clr-accent);
+    font-size: 1.8em;
+}
+
+.my-category-title {
+    color: white;
+    text-transform: uppercase;
+}
+
+.trivia-container {
+    display: none;
+    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
