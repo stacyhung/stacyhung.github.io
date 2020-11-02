@@ -1,18 +1,16 @@
-const getAnswerBtn = document.getElementById('get-answer-btn');
-const getQuestionBtn = document.getElementById('get-question-btn');
-const answerBox = document.getElementById('answer');
-const questionBox = document.getElementById('question');
-const valueBox = document.getElementById('value');
-let answer = "";
-let value = "";
+// const getAnswerBtn = document.getElementById('get-answer-btn');
+// const getQuestionBtn = document.getElementById('get-question-btn');
+// const answerBox = document.getElementById('answer');
+// const questionBox = document.getElementById('question');
+// const valueBox = document.getElementById('value');
+// let answer = "";
+// let value = "";
 
 let board = document.getElementById('board');
-
-/* Practice using APIs (and Promises with async / await)
-
-http://jservice.io/
-*/
-
+let numCategories = 6;  // number of categories to retrieve
+let offset = 11;         // starting point to start retrieving categories
+let currQuestion = "";
+let currAnswer = "";
 
 /**
  * Jeopardy (from Scrimba)
@@ -23,7 +21,7 @@ http://jservice.io/
  * Parameters: count (number of categories), and offset (starting point of categories)
  */
 async function getCategories() {
-    let response = await fetch("http://jservice.io/api/categories?count=6&offset=4")
+    let response = await fetch(`http://jservice.io/api/categories?count=${numCategories}&offset=${offset}`)
     let data = await response.json();
     return data;
 }
@@ -31,19 +29,62 @@ async function getCategories() {
 function getCategoryHTML(category) {
     return `
         <div class="my-category-title">${category.title}</div>
-        <div class="my-category-clue">$200</div>
-        <div class="my-category-clue">$400</div>
-        <div class="my-category-clue">$600</div>
-        <div class="my-category-clue">$800</div>
-        <div class="my-category-clue">$1000</div>
+        ${getClueHTML(200, category.id)}
+        ${getClueHTML(400, category.id)}
+        ${getClueHTML(600, category.id)}
+        ${getClueHTML(800, category.id)}
+        ${getClueHTML(1000, category.id)}
         `;
 }
 
-getCategories().then(categories => {
-    console.log(categories);
-    board.innerHTML = categories.map(getCategoryHTML).join('');
-})
+function getClueHTML(clueValue, categoryID) {
+    // add category id and value as attributes -- e.g. "data-clue-value-200" and "data-category-id-11523"
+    // return `<div class="my-category-clue" data-clue-value-${clueValue} data-category-id-${categoryID} >$${clueValue}</div>`;
+    return `<div class="my-category-clue" id=${categoryID} >$${clueValue}</div>`;
+}
 
+async function getQuestion(id, value) {
+    // get the category and value that was clicked
+    let response = await fetch(`http://jservice.io/api/clues?value=${value}&category=${id}`);
+    let clue = await response.json();
+    return clue;
+}
+
+// function when clue is clicked
+const getQuestionBoard = e => {
+    // black out clue (can only click once)
+    e.target.style.backgroundColor = "black";
+    e.target.style.color = "black";
+    e.target.style.cursor = "default"; // arrow instead of hand pointer
+
+    // get the category ID and value of the clue that was clicked
+    let clickedID = e.target.id;
+    let clickedValue = e.target.innerHTML.split("$").join('');
+
+    // get the corresponding clue object
+    getQuestion(clickedID, clickedValue).then(clue => {
+        // console.log("Clue: " + JSON.stringify(clue));
+        currAnswer = clue[0].answer;
+        currQuestion = clue[0].question;
+        console.log("Answer: " + currAnswer + " and question: " + currQuestion);
+    });
+}
+
+getCategories().then(categories => {
+    // console.log("Categories:" + JSON.stringify(categories));
+    // Each category is an object with id and title
+    board.innerHTML = categories.map(category => getCategoryHTML(category)).join(''); //board.innerHTML = categories.map(getCategoryHTML).join('')
+    // add event listener to each grid element (class "my-category-clue")
+    let clues = document.querySelectorAll(".my-category-clue");
+
+    clues.forEach(clue => {
+        clue.addEventListener("click", getQuestionBoard, { once: true });
+    })
+});
+
+// board.addEventListener('click', getQuestion);
+
+/*
 async function getQuestion() {
     try {
         let response = await fetch('http://jservice.io/api/random');
@@ -85,4 +126,4 @@ function getAnswer() {
     }
 }
 
-getAnswerBtn.addEventListener('click', getAnswer);
+getAnswerBtn.addEventListener('click', getAnswer);*/

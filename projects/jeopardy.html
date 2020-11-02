@@ -13,6 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&family=Roboto+Condensed:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -38,7 +40,7 @@
 
     <main>
         <header>
-            <h1>This is Jeopardy! (The Stacy version)</h1>
+            <h1 id="jeopardy-game-board-title">Jeopardy</h1>
         </header>
 
         <!--Set up a grid of 6 x 6
@@ -49,15 +51,10 @@
          -->
         <div id="board-container">
             <div id="board"></div>
+            <div id="question"></div> <!-- display this when user clicks a value -->
         </div>
 
-        <div class="trivia-container">
-            <div id="value"></div>
-            <div class="text-container" id="question"></div>
-            <button id="get-question-btn">Random Clue</button>
-            <div class="text-container" id="answer"></div>
-            <button id="get-answer-btn">Get answer</button>
-        </div>
+        <div class="score-board">$0</div>
 
     </main>
 

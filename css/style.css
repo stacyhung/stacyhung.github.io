@@ -3,7 +3,7 @@ Variables
 ========================= */
 
 :root{
-    --clr-very-dark: #31175c;
+    --clr-very-dark: #4b0680;
     --clr-dark: rebeccapurple;
     --clr-secondary: plum;
     --clr-tertiary: #f2d3ed;
@@ -679,6 +679,20 @@ Snake game
 Jeopardy
 ========================= */
 
+#jeopardy-game-board-title {
+    display: block;
+    font-family: 'Ranchers', cursive;
+    text-transform: uppercase;
+    font-size: 6rem;
+    letter-spacing: 0.1em;
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: dotted var(--clr-accent) 10px;
+    color: var(--clr-dark);
+    max-width: 1000px;
+}
+
 #board-container {
     background-color: black;
     margin: 0 auto;
@@ -689,8 +703,11 @@ Jeopardy
     padding: 0.5rem;
 }
 
+#question {
+    display: none;
+}
+
 #board {
-    background-color: var(--clr-dark);
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -698,65 +715,49 @@ Jeopardy
     height: 100%;
 }
 
-#board * {
+#board *,
+.score-board {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-family: var(--ff-secondary);
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: 600;
-    border: solid black 0.25rem;    
+    letter-spacing: 0.01em;
     text-align: center;
 }
 
 .my-category-clue {
+    background-color: var(--clr-dark);
+    border: solid black 0.25rem;
     color: var(--clr-accent);
-    font-size: 1.8em;
+    font-size: 2em;
+}
+
+.my-category-clue:hover,
+.my-category-clue:focus {
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    cursor: pointer;
 }
 
 .my-category-title {
+    background-color: var(--clr-very-dark);
+    border: solid black 0.25rem;
+    border-bottom: solid black 0.5rem;
     color: white;
     text-transform: uppercase;
+    font-size: 1.5rem;
 }
 
-.trivia-container {
-    display: none;
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.trivia-container #value {
+.score-board {
+    width: 300px;
+    margin: 0 auto;
     margin-top: 50px;
-    color: #31175c;
-    font-size: 2.5em;
-    font-style: italic;
-    font-weight: 800;
-}
-
-.trivia-container .text-container {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    margin-top: 20px;
-    padding: 50px;
-    background-color: #31175c;
+    padding: 20px;
+    background-color: var(--clr-very-dark);
     color: white;
-    font-size: 1.6em;
-    text-transform: uppercase;
-    /* transition: transform 250ms;
-    transform: scale(1); */
-}
-
-.trivia-container button {
-    font-size: 1.25em;
-    text-transform: uppercase;
-    background: orange;
-    color: white;
-    margin: 1em;
-    border-radius: 10px;
-    padding: 0.6em;
+    font-size: 3.5rem;
+    border: solid black 0.8rem;
 }
 
 /* ======================
