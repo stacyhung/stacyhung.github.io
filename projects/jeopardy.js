@@ -6,7 +6,8 @@
 // let answer = "";
 // let value = "";
 
-let board = document.getElementById('board');
+const board = document.getElementById('board');
+const questionBoard = document.getElementById('question');
 let numCategories = 6;  // number of categories to retrieve
 let offset = 11;         // starting point to start retrieving categories
 let currQuestion = "";
@@ -50,8 +51,19 @@ async function getQuestion(id, value) {
     return clue;
 }
 
+function showValue(value) {
+    board.style.display = "none";
+    questionBoard.innerHTML = value;
+    questionBoard.style.display = "flex";
+}
+
+function showQuestion() {
+    questionBoard.style.fontSize = '3rem';
+    questionBoard.innerHTML = currQuestion;
+}
+
 // function when clue is clicked
-const getQuestionBoard = e => {
+const showValueAndQuestion = e => {
     // black out clue (can only click once)
     e.target.style.backgroundColor = "black";
     e.target.style.color = "black";
@@ -61,12 +73,16 @@ const getQuestionBoard = e => {
     let clickedID = e.target.id;
     let clickedValue = e.target.innerHTML.split("$").join('');
 
+    // update board container to show value -- for 2 seconds, then show the question.
+    showValue(e.target.innerHTML);
+
     // get the corresponding clue object
     getQuestion(clickedID, clickedValue).then(clue => {
         // console.log("Clue: " + JSON.stringify(clue));
         currAnswer = clue[0].answer;
         currQuestion = clue[0].question;
-        console.log("Answer: " + currAnswer + " and question: " + currQuestion);
+        // console.log("Answer: " + currAnswer + " and question: " + currQuestion);
+        setTimeout(showQuestion, 2000);
     });
 }
 
@@ -78,7 +94,7 @@ getCategories().then(categories => {
     let clues = document.querySelectorAll(".my-category-clue");
 
     clues.forEach(clue => {
-        clue.addEventListener("click", getQuestionBoard, { once: true });
+        clue.addEventListener("click", showValueAndQuestion, { once: true });
     })
 });
 
