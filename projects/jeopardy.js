@@ -8,10 +8,17 @@
 
 const board = document.getElementById('board');
 const questionBoard = document.getElementById('question');
+const answerBoard = document.getElementById('guess-container');
+const submitButton = document.querySelector('.submit-btn');
+const giveUpButton = document.querySelector('.give-up-btn');
+const scoreBoard = document.querySelector('.score-board');
+const userGuess = document.getElementById('guess-box');
 let numCategories = 6;  // number of categories to retrieve
 let offset = 11;         // starting point to start retrieving categories
 let currQuestion = "";
 let currAnswer = "";
+let score = 0;
+let currValue = 0;
 
 /**
  * Jeopardy (from Scrimba)
@@ -55,11 +62,17 @@ function showValue(value) {
     board.style.display = "none";
     questionBoard.innerHTML = value;
     questionBoard.style.display = "flex";
+    questionBoard.style.fontSize = "12rem";
+}
+
+function openAnswerBoard() {
+    answerBoard.style.display = "flex";
 }
 
 function showQuestion() {
     questionBoard.style.fontSize = '3rem';
     questionBoard.innerHTML = currQuestion;
+    openAnswerBoard();
 }
 
 // function when clue is clicked
@@ -71,17 +84,18 @@ const showValueAndQuestion = e => {
 
     // get the category ID and value of the clue that was clicked
     let clickedID = e.target.id;
-    let clickedValue = e.target.innerHTML.split("$").join('');
+    currValue = parseInt(e.target.innerHTML.split("$").join(''));
 
     // update board container to show value -- for 2 seconds, then show the question.
     showValue(e.target.innerHTML);
 
     // get the corresponding clue object
-    getQuestion(clickedID, clickedValue).then(clue => {
+    getQuestion(clickedID, currValue).then(clue => {
         // console.log("Clue: " + JSON.stringify(clue));
         currAnswer = clue[0].answer;
         currQuestion = clue[0].question;
-        // console.log("Answer: " + currAnswer + " and question: " + currQuestion);
+        console.log("Answer: " + currAnswer);
+        console.log("Question: " + currQuestion);
         setTimeout(showQuestion, 2000);
     });
 }
@@ -98,7 +112,41 @@ getCategories().then(categories => {
     })
 });
 
-// board.addEventListener('click', getQuestion);
+// when the user clicks the "give up" button
+function giveUp() {
+    // close the guess board and question board
+    questionBoard.style.display = "none";
+    answerBoard.style.display = "none";
+    // open the clue grid up
+    board.style.display = "grid";
+    // subtract points from the score;
+    score -= currValue;
+    scoreBoard.innerHTML = `$${score}`;
+    userGuess.value = "";
+}
+
+function checkAnswer() {
+    const userAnswer = userGuess.value;
+
+    // check (not case dependent) user's input against answer
+    if (userAnswer.toLowerCase() != currAnswer.toLowerCase()) {
+        // same result as giving up
+        giveUp();
+    } else {
+        // close the guess board and question board
+        questionBoard.style.display = "none";
+        answerBoard.style.display = "none";
+        // open the clue grid up
+        board.style.display = "grid";
+        // subtract points from the score;
+        score += currValue;
+        scoreBoard.innerHTML = `$${score}`;
+        userGuess.value = "";
+    }
+}
+
+submitButton.addEventListener('click', checkAnswer);
+giveUpButton.addEventListener('click', giveUp);
 
 /*
 async function getQuestion() {

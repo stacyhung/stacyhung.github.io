@@ -13,7 +13,7 @@ Variables
     --ff-header: 'Bree Serif', serif;
     --ff-fancy-header: 'Dancing Script', cursive;
     --ff-primary: 'Barlow', sans-serif;
-    --ff-secondary: 'Source Sans Pro', sans-serif;
+    /* --ff-secondary: 'Source Sans Pro', sans-serif; */
 }
 
 /* ======================
@@ -703,10 +703,6 @@ Jeopardy
     padding: 0.5rem;
 }
 
-#question {
-    display: none;
-}
-
 #board {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -716,7 +712,8 @@ Jeopardy
 }
 
 #board *,
-.score-board {
+.score-board,
+#question {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -724,6 +721,15 @@ Jeopardy
     font-weight: 600;
     letter-spacing: 0.01em;
     text-align: center;
+}
+
+#question {
+    display: none;
+    height: 100%;
+    background-color: var(--clr-dark);
+    color: var(--clr-accent);
+    font-size: 12rem;
+    text-transform: uppercase;
 }
 
 .my-category-clue {
@@ -758,6 +764,43 @@ Jeopardy
     color: white;
     font-size: 3.5rem;
     border: solid black 0.8rem;
+}
+
+#guess-container {
+    display: none;
+    /* display: flex; */
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+#guess-box {
+    margin: 25px;
+    display: block;
+    border: black solid 1px;
+    width: 50vw;
+    font-size: 1.5rem;
+}
+
+.answer-btn {
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    font-family: 'Ranchers', cursive;
+    margin: 25px 5px;
+    padding: 10px;
+}
+
+.answer-btn:hover,
+.answer-btn:focus {
+    background-color: orange;
+    color: var(--clr-very-dark);
+    transition: background-color 250ms ease-in-out;
+}
+
+.give-up-btn {
+    margin-right: 25px;
 }
 
 /* ======================
