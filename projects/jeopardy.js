@@ -53,7 +53,7 @@ function getClueHTML(clueValue, categoryID) {
 
 async function getQuestion(id, value) {
     // get the category and value that was clicked
-    let response = await fetch(`http://jservice.io/api/clues?value=${value}&category=${id}`);
+    let response = await fetch(`https://jservice.io/api/clues?value=${value}&category=${id}`);
     let clue = await response.json();
     return clue;
 }
