@@ -29,7 +29,7 @@ let currValue = 0;
  * Parameters: count (number of categories), and offset (starting point of categories)
  */
 async function getCategories() {
-    let response = await fetch(`http://jservice.io/api/categories?count=${numCategories}&offset=${offset}`)
+    let response = await fetch(`https://jservice.io/api/categories?count=${numCategories}&offset=${offset}`)
     let data = await response.json();
     return data;
 }
