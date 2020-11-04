@@ -13,6 +13,10 @@ const submitButton = document.querySelector('.submit-btn');
 const giveUpButton = document.querySelector('.give-up-btn');
 const scoreBoard = document.querySelector('.score-board');
 const userGuess = document.getElementById('guess-box');
+const correctAnswerContainer = document.getElementById('correct-answer-container');
+const correctAnswer = document.querySelector('.correct-answer');
+const correctAnswerTitle = document.querySelector('.answer-title');
+
 let numCategories = 6;  // number of categories to retrieve
 let offset = 11;         // starting point to start retrieving categories
 let currQuestion = "";
@@ -114,15 +118,29 @@ getCategories().then(categories => {
 
 // when the user clicks the "give up" button
 function giveUp() {
-    // close the guess board and question board
-    questionBoard.style.display = "none";
+    // show the answer and keep the question up at the same time for a few seconds
     answerBoard.style.display = "none";
-    // open the clue grid up
-    board.style.display = "grid";
+    showAnswer();
+
     // subtract points from the score;
     score -= currValue;
     scoreBoard.innerHTML = `$${score}`;
     userGuess.value = "";
+}
+
+function hideQuestion() {
+    correctAnswerContainer.style.display = "none";
+    // after, close the question board
+    questionBoard.style.display = "none";
+    // open the clue grid up
+    board.style.display = "grid";
+}
+
+function showAnswer() {
+    correctAnswerContainer.style.display = "flex";
+    correctAnswerTitle.innerHTML = "Correct answer: ";
+    correctAnswer.innerHTML = currAnswer;
+    setTimeout(hideQuestion, 4500);
 }
 
 function checkAnswer() {
@@ -142,6 +160,12 @@ function checkAnswer() {
         score += currValue;
         scoreBoard.innerHTML = `$${score}`;
         userGuess.value = "";
+
+        // let the user quickly know they got the answer right
+        correctAnswerContainer.style.display = "flex";
+        correctAnswerTitle.innerHTML = "Correct!";
+        correctAnswer.innerHTML = "";
+        setTimeout(hideQuestion, 1500);
     }
 }
 
