@@ -18,7 +18,7 @@ const correctAnswer = document.querySelector('.correct-answer');
 const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
-let offset = 11;         // starting point to start retrieving categories
+let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -33,6 +33,7 @@ let currValue = 0;
  * Parameters: count (number of categories), and offset (starting point of categories)
  */
 async function getCategories() {
+    console.log("offset: " + offset);
     let response = await fetch(`https://jservice.io/api/categories?count=${numCategories}&offset=${offset}`)
     let data = await response.json();
     return data;
@@ -140,7 +141,7 @@ function showAnswer() {
     correctAnswerContainer.style.display = "flex";
     correctAnswerTitle.innerHTML = "Correct answer: ";
     correctAnswer.innerHTML = currAnswer;
-    setTimeout(hideQuestion, 4500);
+    setTimeout(hideQuestion, 4000);
 }
 
 function checkAnswer() {
