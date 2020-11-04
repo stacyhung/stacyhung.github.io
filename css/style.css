@@ -13,7 +13,7 @@ Variables
     --ff-header: 'Bree Serif', serif;
     --ff-fancy-header: 'Dancing Script', cursive;
     --ff-primary: 'Barlow', sans-serif;
-    /* --ff-secondary: 'Source Sans Pro', sans-serif; */
+    --ff-secondary: 'Source Sans Pro', sans-serif;
 }
 
 /* ======================
@@ -309,13 +309,17 @@ Blog pages
 }
 
 .articles-container p {
-    font-size: 1.3em;
+    font-family: var(--ff-secondary);
+    font-size: 1.2em;
     font-weight: 300;
+    line-height: 1.4em;
 }
 
 .article-date {
     font-size: 1.4rem;
     opacity: 0.5;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .article-link:link, 
@@ -349,14 +353,16 @@ Blog pages
 .article-container li,
 .article-container ol,
 .article-container p {
-    font-size: 1.1em;
-    font-weight: inherit;
+    font-family: var(--ff-secondary);
+    font-size: 1.1rem;
+    font-weight: 400;
     color: inherit;
+    line-height: 1.5em;
 }
 
 .article-container h1 {
     font-family: var(--ff-primary);
-    font-size: 2.8em;
+    font-size: 2.8rem;
     font-weight: 800;
 }
 
