@@ -19,10 +19,12 @@ const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
 let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
+// let offset = 16282; // Clue for "Ride with a license" category for $600 is undefined 
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
 let currValue = 0;
+let isRandomClue = false;
 
 /**
  * Jeopardy (from Scrimba)
@@ -58,8 +60,20 @@ function getClueHTML(clueValue, categoryID) {
 
 async function getQuestion(id, value) {
     // get the category and value that was clicked
+    // console.log(`Attempting to access: https://jservice.io/api/clues?value=${value}&category=${id}`);
     let response = await fetch(`https://jservice.io/api/clues?value=${value}&category=${id}`);
     let clue = await response.json();
+    isRandomClue = false;
+
+    // make sure the clue is valid
+    if (clue[0] == null) {
+        // replace with random clue
+        response = await fetch(`https://jservice.io/api/random?count=1`);
+        clue = await response.json();
+        console.log("Current clue is undefined; replacing with random clue: " + clue[0].question + " / " + clue[0].answer);
+        isRandomClue = true;
+    }
+
     return clue;
 }
 
@@ -76,7 +90,11 @@ function openAnswerBoard() {
 
 function showQuestion() {
     questionBoard.style.fontSize = '3rem';
-    questionBoard.innerHTML = currQuestion;
+    if (isRandomClue) {
+        questionBoard.innerHTML = "(*random clue*) " + currQuestion;
+    } else {
+        questionBoard.innerHTML = currQuestion;
+    }
     openAnswerBoard();
 }
 
@@ -102,6 +120,8 @@ const showValueAndQuestion = e => {
         console.log("Answer: " + currAnswer);
         console.log("Question: " + currQuestion);
         setTimeout(showQuestion, 2000);
+    }).catch(e => {
+        console.log("Error: " + e);
     });
 }
 
@@ -139,7 +159,7 @@ function hideQuestion() {
 
 function showAnswer() {
     correctAnswerContainer.style.display = "flex";
-    correctAnswerTitle.innerHTML = "Correct answer: ";
+    correctAnswerTitle.innerHTML = "Sorry, the correct answer is: ";
     correctAnswer.innerHTML = currAnswer;
     setTimeout(hideQuestion, 4000);
 }

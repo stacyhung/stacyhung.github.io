@@ -758,7 +758,7 @@ Jeopardy
 .score-board {
     width: 300px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 20px;
     background-color: var(--clr-very-dark);
     color: white;
@@ -766,19 +766,14 @@ Jeopardy
     border: solid black 0.8rem;
 }
 
-#guess-container {
-    display: none;
-    /* display: flex; */
-    margin: 0 auto;
-    max-width: 1000px;
-}
-
+#guess-container,
 #correct-answer-container {
     display: none;
     /* display: flex; */
     align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
     max-width: 1000px;
-    margin: 0 1rem;
 }
 
 .answer-title,
@@ -799,7 +794,6 @@ Jeopardy
 }
 
 #guess-box {
-    margin: 25px;
     display: block;
     border: black solid 1px;
     width: 50vw;
