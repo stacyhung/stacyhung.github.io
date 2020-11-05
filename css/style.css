@@ -2,7 +2,7 @@
 Variables
 ========================= */
 
-:root{
+:root {
     --clr-very-dark: #4b0680;
     --clr-dark: rebeccapurple;
     --clr-secondary: plum;
@@ -10,10 +10,9 @@ Variables
     --clr-light: white;
     --clr-accent: #f5df38;
 
-    --ff-header: 'Bree Serif', serif;
-    --ff-fancy-header: 'Dancing Script', cursive;
-    --ff-primary: 'Barlow', sans-serif;
-    --ff-secondary: 'Source Sans Pro', sans-serif;
+    --ff-fancy: 'Dancing Script', cursive;
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-secondary: 'Cairo', sans-serif;
 }
 
 /* ======================
@@ -49,8 +48,13 @@ body, p {
 }
 
 .nav-buttons {
+    font-family: var(--ff-secondary);
     text-transform: uppercase;
-    letter-spacing: 1.3px;
+    letter-spacing: 1.8px;
+}
+
+.nav-link {
+    font-weight: 600;
 }
 
 img {
@@ -59,16 +63,18 @@ img {
 
 h1 {
     color: var(--clr-dark);
-    font-family: var(--ff-header);
-    font-size: 2.65rem;
+    font-family: var(--ff-secondary);
+    font-size: 2.8rem;
     text-align: center;
+    line-height: 1.2;
 }
 
 h2 {
     color: var(--clr-dark);
-    font-family: var(--ff-primary);
+    font-family: var(--ff-secondary);
     font-size: 2rem;
     text-align: center;
+    line-height: 1.2;
 }
 
 .collage-element {
@@ -103,7 +109,7 @@ Navigation
 
 #title {
     margin: 0;
-    font-family: var(--ff-fancy-header);
+    font-family: var(--ff-fancy);
     font-size: 30px;
     color: var(--clr-accent);
     /* background-color: blue; */
@@ -111,16 +117,19 @@ Navigation
 
 #subtitle {
     margin: 0;
-    font-size: 16px;
-    font-family: 'Architects Daughter', cursive;
+    font-size: 1em;
+    line-height: 0.9;
+    letter-spacing: 0.06em;
+    font-family: var(--ff-secondary);
     text-transform: uppercase;
+    margin-bottom: 0.4em;
     color: orange;
     /* background-color: blueviolet; */
 }
 
 #nav-bar {
     background-color: var(--clr-dark);
-    font-family: var(--ff-header);
+    font-family: var(--ff-primary);
     font-size: 1rem;
     display: flex;
     justify-content: space-between;
@@ -262,11 +271,10 @@ Main page
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 #profile-pic {
-    margin: 100px;
+    margin: 5em;
     width: 400px;
     height: 400px;
     object-fit: cover;
@@ -280,10 +288,23 @@ Main page
     transform: rotateY(180deg) scale(1.25);
 }
 
+#main-title {
+    font-family: var(--ff-secondary);
+    font-size: 3.2em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0.2em 0;
+}
+
 #main-subtitle {
-    font-family: var(--ff-fancy-header);
-    font-size: 2.4em;
-    margin: 0.2em;
+    font-family: var(--ff-secondary);
+    font-size: 1.6em;
+    letter-spacing: 0.02em;
+    font-style: italic;
+    font-weight: 500;
+    margin: 0;
 }
 
 /* ======================
@@ -309,16 +330,16 @@ Blog pages
 }
 
 .articles-container p {
-    font-family: var(--ff-secondary);
+    font-family: var(--ff-primary);
     font-size: 1.2em;
     font-weight: 300;
     line-height: 1.4em;
 }
 
 .article-date {
-    font-size: 1.4rem;
-    opacity: 0.5;
-    letter-spacing: 0.05em;
+    font-size: 1em;
+    opacity: 0.4;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
 }
 
@@ -327,7 +348,7 @@ Blog pages
 .article-header {
     color: var(--clr-dark);
     font-size: 1.5em;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .article-link:hover,
@@ -353,7 +374,7 @@ Blog pages
 .article-container li,
 .article-container ol,
 .article-container p {
-    font-family: var(--ff-secondary);
+    font-family: var(--ff-primary);
     font-size: 1.1rem;
     font-weight: 400;
     color: inherit;
@@ -361,9 +382,9 @@ Blog pages
 }
 
 .article-container h1 {
-    font-family: var(--ff-primary);
+    font-family: var(--ff-secondary);
     font-size: 2.8rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .within-article-link:link,
@@ -407,7 +428,6 @@ About me
 #resume-btn:hover,
 #resume-btn:focus {
     background-color: var(--clr-secondary);
-    /* color: var(--clr-dark); */
     transition: background-color 250ms;
 }
 
@@ -489,7 +509,7 @@ Recipe pages
 .recipe-measure {
     text-transform: uppercase;
     font-size: 1.25rem;
-    font-family: var(--ff-header);
+    font-family: var(--ff-primary);
     letter-spacing: 0.04em;
 }
 

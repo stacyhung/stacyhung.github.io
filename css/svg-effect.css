@@ -48,18 +48,18 @@
 .grid figcaption h2 {
     margin: 0 0 20px 0;
     color: white;
-    /* color: rebeccapurple; */
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 400;
-    font-size: 130%;
+    letter-spacing: 1.1px;
+    font-weight: 500;
+    font-size: 180%;
+    line-height: 1.2;
     transition: transform 0.3s;
 }
 
 .grid figcaption p {
     padding: 0 20px;
     /* color: #aaa; */
-    color: #fcdbae;
+    color: #f5df38;
     font-weight: 300;
     transition: opacity 0.3s, transform 0.3s;
 }
