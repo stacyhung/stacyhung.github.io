@@ -9,10 +9,10 @@ Variables
     --clr-tertiary: #f2d3ed;
     --clr-light: white;
     --clr-accent: #f5df38;
-
-    --ff-fancy: 'Dancing Script', cursive;
+    
     --ff-primary: 'Roboto', sans-serif;
     --ff-secondary: 'Cairo', sans-serif;
+    --ff-fancy: 'Dancing Script', cursive;
 }
 
 /* ======================
