@@ -92,7 +92,7 @@ h2 {
 Navigation
 ========================= */
 
-.header, #logo-link {
+.header {
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -186,15 +186,14 @@ a:focus, a:active, a:hover {
 
     #nav-bar {
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
         padding: 1em 0;
-        /* background-color: blue; */
     }
 
     .header {
         text-align: center;
         padding: 0;
+        margin-bottom: 5px;
         /* background-color: blue; */
     }
 
@@ -727,6 +726,7 @@ Jeopardy
     margin: 0 auto;
     padding: 0;
     max-width: 1000px;
+    min-width: 850px;
     height: 50vh;
     min-height: 500px;
     width: 95vw;
@@ -802,6 +802,7 @@ Jeopardy
 #correct-answer-container {
     display: none;
     /* display: flex; */
+    justify-content: space-evenly;
     align-items: center;
     margin: 0 auto;
     margin-top: 20px;
@@ -828,7 +829,7 @@ Jeopardy
 #guess-box {
     display: block;
     border: black solid 1px;
-    width: 50vw;
+    width: 40vw;
     font-size: 1.5rem;
 }
 
@@ -840,13 +841,13 @@ Jeopardy
     letter-spacing: 0.1rem;
     font-family: 'Ranchers', cursive;
     margin: 25px 5px;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 .answer-btn:hover,
 .answer-btn:focus {
-    background-color: orange;
-    color: var(--clr-dark);
+    background-color: var(--clr-dark);
+    color: var(--clr-accent);
     transition: background-color 250ms ease-in-out;
 }
 
