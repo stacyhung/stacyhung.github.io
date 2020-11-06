@@ -4,7 +4,8 @@ Variables
 
 :root {
     --clr-very-dark: #4b0680;
-    --clr-dark: rebeccapurple;
+    --clr-dark: #5801CB;
+    /* --clr-dark: rebeccapurple; */
     --clr-secondary: plum;
     --clr-tertiary: #f2d3ed;
     --clr-light: white;
