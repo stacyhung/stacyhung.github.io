@@ -29,7 +29,6 @@ body {
     align-content: flex-start;
     position: relative;
     min-height: 100vh;
-    /* background: var(--clr-light); */
 }
 
 main {
@@ -51,6 +50,7 @@ body, p {
     font-family: var(--ff-secondary);
     text-transform: uppercase;
     letter-spacing: 1.8px;
+    line-height: 1.5;
 }
 
 .nav-link {
