@@ -3,12 +3,12 @@ Variables
 ========================= */
 
 :root {
-    --clr-very-dark: #4b0680;
     --clr-dark: #5801CB;
-    /* --clr-dark: rebeccapurple; */
+    --clr-light-dark: #6900F3;
     --clr-secondary: plum;
     --clr-tertiary: #f2d3ed;
     --clr-light: white;
+    /* --clr-accent: #f8ea7d; */
     --clr-accent: #f5df38;
     
     --ff-primary: 'Roboto', sans-serif;
@@ -111,19 +111,20 @@ Navigation
 #title {
     margin: 0;
     font-family: var(--ff-fancy);
-    font-size: 30px;
+    font-size: 1.5em;
     color: var(--clr-accent);
     /* background-color: blue; */
 }
 
 #subtitle {
     margin: 0;
-    font-size: 1em;
+    font-size: 0.8em;
     line-height: 0.9;
     letter-spacing: 0.06em;
     font-family: var(--ff-secondary);
+    font-weight: 700;
     text-transform: uppercase;
-    margin: 0.2em 0;
+    margin: 0.1em 0;
     /* color: orange; */
     color: var(--clr-accent);
     /* background-color: blueviolet; */
@@ -726,7 +727,8 @@ Jeopardy
     margin: 0 auto;
     padding: 0;
     max-width: 1000px;
-    height: 40vh;
+    height: 50vh;
+    min-height: 500px;
     width: 95vw;
     padding: 0.5rem;
 }
@@ -764,7 +766,8 @@ Jeopardy
     background-color: var(--clr-dark);
     border: solid black 0.25rem;
     color: var(--clr-accent);
-    font-size: 2em;
+    font-size: 3rem;
+    padding: 5px 0;
 }
 
 .my-category-clue:hover,
@@ -775,12 +778,13 @@ Jeopardy
 }
 
 .my-category-title {
-    background-color: var(--clr-very-dark);
+    background-color: var(--clr-dark);
     border: solid black 0.25rem;
     border-bottom: solid black 0.5rem;
     color: white;
     text-transform: uppercase;
     font-size: 1.5rem;
+    padding: 0.2em;
 }
 
 .score-board {
@@ -788,7 +792,7 @@ Jeopardy
     margin: 0 auto;
     margin-top: 20px;
     padding: 20px;
-    background-color: var(--clr-very-dark);
+    background-color: var(--clr-dark);
     color: white;
     font-size: 3.5rem;
     border: solid black 0.8rem;
@@ -842,7 +846,7 @@ Jeopardy
 .answer-btn:hover,
 .answer-btn:focus {
     background-color: orange;
-    color: var(--clr-very-dark);
+    color: var(--clr-dark);
     transition: background-color 250ms ease-in-out;
 }
 
