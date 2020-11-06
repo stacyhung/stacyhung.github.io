@@ -50,7 +50,7 @@ body, p {
     font-family: var(--ff-secondary);
     text-transform: uppercase;
     letter-spacing: 1.8px;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 .nav-link {
@@ -154,8 +154,8 @@ Navigation
 
 .current-page {
     /* border-bottom: solid 2px var(--clr-light); */
-    border-bottom: solid 2px white;
-    padding: 0.15em 0;
+    border-bottom: solid 1.4px white;
+    /* padding: 0.15em 0; */
 }
 
 .current-page:hover {
