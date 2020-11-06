@@ -122,8 +122,9 @@ Navigation
     letter-spacing: 0.06em;
     font-family: var(--ff-secondary);
     text-transform: uppercase;
-    margin-bottom: 0.4em;
-    color: orange;
+    margin: 0.2em 0;
+    /* color: orange; */
+    color: var(--clr-accent);
     /* background-color: blueviolet; */
 }
 
