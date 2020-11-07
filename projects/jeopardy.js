@@ -18,8 +18,8 @@ const correctAnswer = document.querySelector('.correct-answer');
 const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
-let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
-// let offset = 16282; // Clue for "Ride with a license" category for $600 is undefined 
+// let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
+let offset = 14391; // Clue for "Drugs in the movies" category for $200 has italics as answer
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -119,7 +119,7 @@ const showValueAndQuestion = e => {
         currQuestion = clue[0].question;
         console.log("Answer: " + currAnswer);
         console.log("Question: " + currQuestion);
-        setTimeout(showQuestion, 2000);
+        setTimeout(showQuestion, 1500);
     }).catch(e => {
         console.log("Error: " + e);
     });
@@ -161,11 +161,17 @@ function showAnswer() {
     correctAnswerContainer.style.display = "flex";
     correctAnswerTitle.innerHTML = "Sorry, the correct answer is: ";
     correctAnswer.innerHTML = currAnswer;
-    setTimeout(hideQuestion, 4000);
+    setTimeout(hideQuestion, 3000);
 }
 
 function checkAnswer() {
     const userAnswer = userGuess.value;
+
+    // first check if the answer contains an italics tag <i>....</i>
+    if (currAnswer.substring(0, 3) == "<i>" && currAnswer.substring(currAnswer.length - 4, currAnswer.length) == "</i>") {
+        // remove the italics tag
+        currAnswer = currAnswer.substring(3, currAnswer.length - 4);
+    }
 
     // check (not case dependent) user's input against answer
     if (userAnswer.toLowerCase() != currAnswer.toLowerCase()) {
@@ -192,47 +198,3 @@ function checkAnswer() {
 
 submitButton.addEventListener('click', checkAnswer);
 giveUpButton.addEventListener('click', giveUp);
-
-/*
-async function getQuestion() {
-    try {
-        let response = await fetch('http://jservice.io/api/random');
-        let data = await response.json();
-        let question = data[0].question;
-        answer = data[0].answer;
-        value = data[0].value;
-        if (!value) { value = 200; }
-
-        console.log("Value:" + value);
-
-        // display in clue box
-        questionBox.innerHTML = question;
-
-        // clear question box
-        answerBox.innerHTML = "";
-
-        // show value of question:
-        valueBox.innerHTML = "For $" + value + "...";
-
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-getQuestionBtn.addEventListener('click', getQuestion);
-
-function getAnswer() {
-    try {
-        console.log("Answer:" + answer);
-
-        // display in answer box
-        // answerBox.classList.toggle('visible');
-
-        answerBox.innerHTML = answer;
-
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-getAnswerBtn.addEventListener('click', getAnswer);*/
