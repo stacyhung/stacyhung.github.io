@@ -18,8 +18,8 @@ const correctAnswer = document.querySelector('.correct-answer');
 const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
-// let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
-let offset = 14391; // Clue for "Drugs in the movies" category for $200 has italics as answer
+let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
+// let offset = 14391; // Clue for "Drugs in the movies" category for $200 has italics as answer
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
