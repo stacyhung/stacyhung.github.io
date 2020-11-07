@@ -1,11 +1,3 @@
-// const getAnswerBtn = document.getElementById('get-answer-btn');
-// const getQuestionBtn = document.getElementById('get-question-btn');
-// const answerBox = document.getElementById('answer');
-// const questionBox = document.getElementById('question');
-// const valueBox = document.getElementById('value');
-// let answer = "";
-// let value = "";
-
 const board = document.getElementById('board');
 const questionBoard = document.getElementById('question');
 const answerBoard = document.getElementById('guess-container');
@@ -19,7 +11,7 @@ const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
 let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
-// let offset = 14391; // Clue for "Drugs in the movies" category for $200 has italics as answer
+// let offset = 10559; // Clue for "Fast food choices" category for $400 has escaped single quote
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -167,10 +159,15 @@ function showAnswer() {
 function checkAnswer() {
     const userAnswer = userGuess.value;
 
-    // first check if the answer contains an italics tag <i>....</i>
+    // check if the answer contains an italics tag <i>....</i>
     if (currAnswer.substring(0, 3) == "<i>" && currAnswer.substring(currAnswer.length - 4, currAnswer.length) == "</i>") {
         // remove the italics tag
         currAnswer = currAnswer.substring(3, currAnswer.length - 4);
+    }
+
+    // check if answer contains a single quote (which might be escaped)
+    if (currAnswer.includes('')) {
+        currAnswer = currAnswer.replace("\\'", "'");
     }
 
     // check (not case dependent) user's input against answer
