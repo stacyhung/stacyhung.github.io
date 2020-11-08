@@ -1,3 +1,4 @@
+const snakeStartSpeed = 350; // ms
 let score = 0;
 let scoreDisplay = document.getElementById("snakegame-score");
 let startBtn = document.getElementById("snakegame-start-btn");
@@ -7,7 +8,7 @@ let direction = 1; // 1: right; -1: left; width: up; -width: down
 let squares = [];
 let currentSnake = [2, 1, 0]; // head is based on grid number moving right
 let timerId = 0;
-let interval = 1000; // 1000ms or 1s
+let interval = snakeStartSpeed; // 1000ms or 1s
 let speed = 0.9 // increment ratio by which to decrease speed by
 let appleIndex = 0;
 // let apple = document.createElement("img");
@@ -49,7 +50,7 @@ function startGame() {
     // reset the timer
     clearInterval(timerId);
     timerId = 0;
-    interval = 1000;
+    interval = snakeStartSpeed;
 
     // re-add the class of snake to the new currentSnake
     currentSnake = [2, 1, 0];

@@ -78,6 +78,16 @@ h2 {
     line-height: 1.2;
 }
 
+h4 {
+    color: black;
+    font-family: var(--ff-primary);
+    font-style: italic;
+    font-size: 1.2em;
+    font-weight: 200;
+    text-align: center;
+    line-height: 1.2;
+}
+
 .collage-element {
     display: flex;
     justify-content: space-evenly;

@@ -36,6 +36,7 @@
     <main>
         <header>
             <h1>Stacy's Snakegame</h1>
+            <h4>Navigate the snake using your keypad to eat as many apples as possible!</h4>
         </header>
         <div id="snakegame-container">
             <div id="snakegame-score-container">
@@ -46,13 +47,13 @@
             </div>
 
             <div id="snakegame-btn-container">
-                <button id="snakegame-start-btn">Start/Restart</button>
+                <button id="snakegame-start-btn" onclick="this.blur();">Start/Restart</button>
             </div>
         </div>
     </main>
 
     <footer>
-        <div class="guest-container">
+        <div class=" guest-container">
             <form id="suscribe-form">
                 <label for="guest-email">Subscribe to my mailing list:</label>
                 <input name="email-address" id="guest-email" placeholder="Email" type="email" required>
