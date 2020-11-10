@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Stacy Hung">
+    <title>Travelling to Iceland</title>
+    <link href="../css/style.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&family=Dancing+Script:wght@500;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/481308c503.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <div id="nav-bar">
+            <a href="../index.html" id="logo-link">
+                <div class="header">
+                    <p id="title">Be Curious</p>
+                    <p id="subtitle">Stacy's Space</p>
+                </div>
+            </a>
+            <div class="nav-buttons">
+                <h3 class="nav-button"><a href="../blog.html" class="nav-link">Blog</a></h3>
+                <h3 class="nav-button"><a href="../recipes.html" class="nav-link recipes-link">Recipes</a></h3>
+                <h3 class="nav-button"><a href="../travelling.html"
+                        class="current-page nav-link travelling-link">Travelling</a></h3>
+                <h3 class="nav-button"><a href="../projects.html" class="nav-link projects-link">projects</a></h3>
+                <h3 class="nav-button"><a href="../about.html" class="nav-link about-me-link">About Me</a>
+                </h3>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header>
+            <h1>10 days in Utah</h1>
+        </header>
+
+        <div class="carousel">
+            <button class="carousel__button carousel__button--left">
+                <!-- <i class="fas fa-chevron-left"></i> -->
+                <img src="../images/svg/chevron-left-solid.svg" alt="left arrow">
+            </button>
+            <div class="carousel__track-container">
+                <ul class="carousel__track">
+                    <li class="carousel__slide current-slide">
+                        <img class="carousel__img"
+                            src="../images/iceland/iceland-carousel/small/1-Pingvellir-male_and_female_goats.jpg"
+                            alt="">
+                    </li>
+                    <li class="carousel__slide">
+                        <img class="carousel__img"
+                            src="../images/iceland/iceland-carousel/small/2-1-Geysir-geyser_exploding.jpg" alt="">
+                    </li>
+                    <li class="carousel__slide">
+                        <img class="carousel__img"
+                            src="../images/iceland/iceland-carousel/small/2-11-Vestmannaeyjar-puffin_closeup.jpg"
+                            alt="">
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel__button carousel__button--right">
+                <!-- <i class="fas fa-chevron-right"></i> -->
+                <img src="../images/svg/chevron-right-solid.svg" alt="right arrow">
+            </button>
+
+            <div class="carousel__nav">
+                <button class="carousel__indicator current-slide"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="guest-container">
+            <form id="suscribe-form">
+                <label for="guest-email">Subscribe to my mailing list:</label>
+                <input name="email-address" id="guest-email" placeholder="Email" type="email" required>
+                <button id="submit-button" type="submit">Submit</button>
+            </form>
+        </div>
+    </footer>
+
+    <script src="carousel.js"></script>
+    <script src="../index.js"></script>
+
+</body>
+
+</html>
