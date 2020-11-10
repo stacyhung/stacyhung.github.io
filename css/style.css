@@ -83,7 +83,7 @@ h4 {
     font-family: var(--ff-primary);
     font-style: italic;
     font-size: 1.2em;
-    font-weight: 200;
+    font-weight: 300;
     text-align: center;
     line-height: 1.2;
 }
@@ -717,6 +717,10 @@ Snake game
 Jeopardy
 ========================= */
 
+h4 span {
+    font-style: normal;
+}
+
 #jeopardy-game-board-title {
     display: block;
     font-family: 'Ranchers', cursive;
@@ -1101,7 +1105,7 @@ Advanced Carousel
 }
 
 .carousel__nav {
-    /* background: pink; */
+    background: pink;
     display: flex;
     justify-content: center;
     padding: 10px 0;
