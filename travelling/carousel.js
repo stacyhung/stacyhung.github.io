@@ -12,12 +12,6 @@ const setSlidePosition = (slide, index) => {
 }
 slides.forEach(setSlidePosition); // declare function to be clear (want to avoid anonymous functions)
 
-// const moveToSlide = (track, currentSlide, targetSlide) => {
-//     track.style.transform = `translateX(-${targetSlide.style.left})`;
-//     currentSlide.classList.remove('current-slide');
-//     targetSlide.classList.add('current-slide');
-// }
-
 function moveToSlide(track, currentSlide, targetSlide) {
     track.style.transform = `translateX(-${targetSlide.style.left})`;
     currentSlide.classList.remove('current-slide');
@@ -39,11 +33,20 @@ nextBtn.addEventListener('click', e => {
     const nextSlide = currentSlide.nextElementSibling;
 
     moveToSlide(track, currentSlide, nextSlide);
-    // const amountToMove = nextSlide.style.left;
-    // // move to the next slide
-    // track.style.transform = `translateX(-${amountToMove})`;
-    // currentSlide.classList.remove('current-slide');
-    // nextSlide.classList.add('current-slide');
 });
 
 // when I click the nav indicators, move to the respective slide
+navDots.addEventListener('click', e => {
+    // determine which indicator was clicked ("closest button")
+    const targetDot = e.target.closest('button');
+
+    // ignore any clicks that are not on the dots
+    if (!targetDot) return;
+
+    const currentSlide = track.querySelector('.current-slide');
+    const currentDot = navDots.querySelector('.current-slide');
+    const targetIndex = dots.findIndex(dot => dot === targetDot);
+    const targetSlide = slides[targetIndex];
+
+    moveToSlide(track, currentSlide, targetSlide);
+});
