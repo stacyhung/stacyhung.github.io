@@ -988,7 +988,7 @@ Travelling page
 Carousel for individual travelling page
 ========================= */
 
-.carousel {
+/* .carousel {
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
@@ -1044,7 +1044,7 @@ Carousel for individual travelling page
 @keyframes fadeVisibility {
     0% { opacity: 0.6; }
     100% { opacity: 1; }
-}
+} */
 
 /* ======================
 Advanced Carousel
@@ -1065,7 +1065,7 @@ Advanced Carousel
 }
 
 .carousel__track-container {
-    background: lightgreen;
+    /* background: lightgreen; */
     height: 100%;
     position: relative;
     overflow: hidden;
