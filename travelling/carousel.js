@@ -46,11 +46,11 @@ prevBtn.addEventListener('click', e => {
     const prevSlide = currentSlide.previousElementSibling;
     const currentDot = navDots.querySelector('.current-slide');
     const prevDot = currentDot.previousElementSibling;
-    const targetIndex = dots.findIndex(dot => dot === prevDot);
+    const prevIndex = dots.findIndex(dot => dot === prevDot);
 
     moveToSlide(currentSlide, prevSlide);
     updateDots(currentDot, prevDot);
-    updateArrows(targetIndex);
+    updateArrows(prevIndex);
 });
 
 // when I click right, move slides to the right
@@ -60,11 +60,11 @@ nextBtn.addEventListener('click', e => {
     const nextSlide = currentSlide.nextElementSibling;
     const currentDot = navDots.querySelector('.current-slide');
     const nextDot = currentDot.nextElementSibling;
-    const targetIndex = dots.findIndex(dot => dot === nextDot);
+    const nextIndex = dots.findIndex(dot => dot === nextDot);
 
     moveToSlide(currentSlide, nextSlide);
     updateDots(currentDot, nextDot);
-    updateArrows(targetIndex);
+    updateArrows(nextIndex);
 });
 
 // when I click the nav indicators, move to the respective slide
