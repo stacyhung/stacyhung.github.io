@@ -12,7 +12,7 @@ const correctAnswerTitle = document.querySelector('.answer-title');
 let numCategories = 6;  // number of categories to retrieve
 // let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
 // let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer; $600 has <i>...</i> tags
-let offset = 4549; //zombies for $400
+let offset = 4549; //Zombies for $400 (The Walking Dead), Das Bait for $200 (a lure), Text me for $200 (face-to-face), text me for $600 (ha ha, only kidding)
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -77,6 +77,7 @@ function showValue(value) {
 
 function openAnswerBoard() {
     answerBoard.style.display = "flex";
+    userGuess.focus();
 }
 
 function showQuestion() {
@@ -157,28 +158,52 @@ function showAnswer() {
 
 function checkAnswer() {
     let userAnswer = userGuess.value;
-
-    // get the minimum answer by removing any unnecessary prefixes (e.g. "a ...", "the ...")
-    // answers with "The" will not be changed (e.g. "The Matrix") since the replacement is case-sensitive
-    currAnswer = currAnswer.replace(/^(a|the) /g, "");
-    userAnswer = userAnswer.replace(/^(a|the) /g, "");
-
-    // use regex to remove: 
-    //  (i) italics tags (e.g. <i>Devil in a Blue Dress</i>)
-    //  (ii) the escape character for single quotes (e.g. answer: "Charlie\'s Angels")
-    //  (iii) parentheses for optional substrings (e.g. answer: "a (salad) dressing")
-    //  (iv) double quotes
-    currAnswer = currAnswer.replace(/\"|<i>|<\/i>|\\|\(|\)/g, "");
-
-    console.log("Updated answer: " + currAnswer);
-
+    let prefixThe = /^THE .*/g;
+    let prefixA = /^A .*/g;
+    let currAnswerRE;
     // allow the user the chance to guess the right answer if it contains a dash
     let altAnswer1 = currAnswer.replace(/-/g, ""); // e.g. "Jell-O" (user likely to submit "Jello")
     let altAnswer2 = currAnswer.replace(/-/g, " "); // e.g. "Harley-Davidson" (user likely to submit "Harley Davidson")
+    let altAnswer1RE;
+    let altAnswer2RE;
 
-    // check (ignoring case) if user's answer is a substring of the game answer
-    // !! Need to add regex or something to check for answers that REQUIRE "THE or A" - e.g. "The Walking Dead"
-    if (currAnswer != userAnswer & altAnswer1 != userAnswer & altAnswer2 != userAnswer) {
+    // use regex to remove: 
+    //  (i)     italics tags (e.g. <i>Devil in a Blue Dress</i>)
+    //  (ii)    the escape character for single quotes (e.g. answer: "Charlie\'s Angels")
+    //  (iii)   parentheses for optional substrings (e.g. answer: "a (salad) dressing")
+    //  (iv)    double quotes
+    //  (v)     commas
+    currAnswer = currAnswer.replace(/,|\"|<i>|<\/i>|\\|\(|\)/g, "");
+    //make answers case-insensitive
+    userAnswer = userAnswer.toUpperCase();
+    currAnswer = currAnswer.toUpperCase();
+    altAnswer1 = altAnswer1.toUpperCase();
+    altAnswer2 = altAnswer2.toUpperCase();
+
+    // if the correct answer contains "a" or "the" in the front
+    if (prefixThe.test(currAnswer)) {
+        currAnswer = currAnswer.replace(/^THE /g, "");
+        currAnswerRE = new RegExp(`(THE\s)?${currAnswer}`);
+        altAnswer1RE = new RegExp(`(THE\s)?${altAnswer1}`);
+        altAnswer2RE = new RegExp(`(THE\s)?${altAnswer2}`);
+    } else if (prefixA.test(currAnswer)) {
+        currAnswer = currAnswer.replace(/^A /g, "");
+        currAnswerRE = new RegExp(`(A\s)?${currAnswer}`);
+        altAnswer1RE = new RegExp(`(A\s)?${altAnswer1}`);
+        altAnswer2RE = new RegExp(`(A\s)?${altAnswer2}`);
+    } else {
+        currAnswerRE = new RegExp(currAnswer);
+        altAnswer1RE = new RegExp(altAnswer1);
+        altAnswer2RE = new RegExp(altAnswer2);
+    }
+
+    console.log("Updated answer: " + currAnswer + ".");
+    console.log("Updated user answer: " + userAnswer + ".");
+    // console.log("Alternate answer: " + altAnswer1);
+    // console.log("Alternate answer: " + altAnswer2);
+
+    // check if user's answer matches game answer
+    if (!(currAnswerRE.test(userAnswer)) & !(altAnswer1RE.test(userAnswer)) & !(altAnswer2RE.test(userAnswer))) {
         // incorrect answer - same result as give up
         giveUp();
     } else {
