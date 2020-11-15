@@ -11,7 +11,8 @@ const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
 // let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
-let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer; $600 has <i>...</i> tags
+// let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer; $600 has <i>...</i> tags
+let offset = 4549; //zombies for $400
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -158,14 +159,16 @@ function checkAnswer() {
     let userAnswer = userGuess.value;
 
     // get the minimum answer by removing any unnecessary prefixes (e.g. "a ...", "the ...")
-    currAnswer = currAnswer.toLowerCase().replace(/^(a|the)/g, "").trim();
-    userAnswer = userAnswer.toLowerCase().replace(/^(a|the)/g, "").trim();
+    // answers with "The" will not be changed (e.g. "The Matrix") since the replacement is case-sensitive
+    currAnswer = currAnswer.replace(/^(a|the) /g, "");
+    userAnswer = userAnswer.replace(/^(a|the) /g, "");
 
     // use regex to remove: 
     //  (i) italics tags (e.g. <i>Devil in a Blue Dress</i>)
     //  (ii) the escape character for single quotes (e.g. answer: "Charlie\'s Angels")
     //  (iii) parentheses for optional substrings (e.g. answer: "a (salad) dressing")
-    currAnswer = currAnswer.replace(/<i>|<\/i>|\\|\(|\)/g, "");
+    //  (iv) double quotes
+    currAnswer = currAnswer.replace(/\"|<i>|<\/i>|\\|\(|\)/g, "");
 
     console.log("Updated answer: " + currAnswer);
 
@@ -174,7 +177,8 @@ function checkAnswer() {
     let altAnswer2 = currAnswer.replace(/-/g, " "); // e.g. "Harley-Davidson" (user likely to submit "Harley Davidson")
 
     // check (ignoring case) if user's answer is a substring of the game answer
-    if (!currAnswer == userAnswer & !altAnswer1 == userAnswer & !altAnswer2 == userAnswer) {
+    // !! Need to add regex or something to check for answers that REQUIRE "THE or A" - e.g. "The Walking Dead"
+    if (currAnswer != userAnswer & altAnswer1 != userAnswer & altAnswer2 != userAnswer) {
         // incorrect answer - same result as give up
         giveUp();
     } else {
