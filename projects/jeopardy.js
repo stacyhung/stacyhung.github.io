@@ -11,7 +11,7 @@ const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
 // let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
-let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer
+let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer; $600 has <i>...</i> tags
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -155,29 +155,27 @@ function showAnswer() {
 }
 
 function checkAnswer() {
-    const userAnswer = userGuess.value;
+    let userAnswer = userGuess.value;
 
-    // check if the answer contains an italics tag <i>....</i>
-    if (currAnswer.substring(0, 3) == "<i>" && currAnswer.substring(currAnswer.length - 4, currAnswer.length) == "</i>") {
-        // remove the italics tag
-        currAnswer = currAnswer.substring(3, currAnswer.length - 4);
-    }
-
-    // check if answer contains a single quote (which might be escaped)
-    // if (currAnswer.includes('')) {
-    //     currAnswer = currAnswer.replace("\\'", "'");
-    // }
+    // get the minimum answer by removing any unnecessary prefixes (e.g. "a ...", "the ...")
+    currAnswer = currAnswer.toLowerCase().replace(/^(a|the)/g, "").trim();
+    userAnswer = userAnswer.toLowerCase().replace(/^(a|the)/g, "").trim();
 
     // use regex to remove: 
-    //  (i) parentheses for optional substrings (e.g. answer: "a (salad) dressing")
+    //  (i) italics tags (e.g. <i>Devil in a Blue Dress</i>)
     //  (ii) the escape character for single quotes (e.g. answer: "Charlie\'s Angels")
-    currAnswer = currAnswer.replace(/(\(|\)|\\)/g, "");
+    //  (iii) parentheses for optional substrings (e.g. answer: "a (salad) dressing")
+    currAnswer = currAnswer.replace(/<i>|<\/i>|\\|\(|\)/g, "");
+
     console.log("Updated answer: " + currAnswer);
 
-    // check user's input against answer (case-insensitive)
-    // if (userAnswer.toLowerCase() != currAnswer.toLowerCase()) {
-    if (!currAnswer.toLowerCase().includes(userAnswer.toLowerCase())) {
-        // same result as giving up
+    // allow the user the chance to guess the right answer if it contains a dash
+    let altAnswer1 = currAnswer.replace(/-/g, ""); // e.g. "Jell-O" (user likely to submit "Jello")
+    let altAnswer2 = currAnswer.replace(/-/g, " "); // e.g. "Harley-Davidson" (user likely to submit "Harley Davidson")
+
+    // check (ignoring case) if user's answer is a substring of the game answer
+    if (!currAnswer == userAnswer & !altAnswer1 == userAnswer & !altAnswer2 == userAnswer) {
+        // incorrect answer - same result as give up
         giveUp();
     } else {
         // close the guess board and question board
@@ -198,5 +196,16 @@ function checkAnswer() {
     }
 }
 
+// trigger button click when user presses enter / return to submit answer
+userGuess.addEventListener('keyup', e => {
+    // 13 is "Enter" or "Return" on the keyboard
+    if (e.key === "Enter") {
+        // cancel default action
+        e.preventDefault();
+        // trigger button element with click
+        submitButton.click();
+    }
+});
 submitButton.addEventListener('click', checkAnswer);
 giveUpButton.addEventListener('click', giveUp);
+
