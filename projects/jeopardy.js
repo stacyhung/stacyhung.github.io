@@ -10,8 +10,8 @@ const correctAnswer = document.querySelector('.correct-answer');
 const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
-let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
-// let offset = 10559; // Clue for "Fast food choices" category for $400 has escaped single quote
+// let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
+let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -46,13 +46,11 @@ function getCategoryHTML(category) {
 
 function getClueHTML(clueValue, categoryID) {
     // add category id and value as attributes -- e.g. "data-clue-value-200" and "data-category-id-11523"
-    // return `<div class="my-category-clue" data-clue-value-${clueValue} data-category-id-${categoryID} >$${clueValue}</div>`;
     return `<div class="my-category-clue" id=${categoryID} >$${clueValue}</div>`;
 }
 
 async function getQuestion(id, value) {
     // get the category and value that was clicked
-    // console.log(`Attempting to access: https://jservice.io/api/clues?value=${value}&category=${id}`);
     let response = await fetch(`https://jservice.io/api/clues?value=${value}&category=${id}`);
     let clue = await response.json();
     isRandomClue = false;
@@ -166,12 +164,19 @@ function checkAnswer() {
     }
 
     // check if answer contains a single quote (which might be escaped)
-    if (currAnswer.includes('')) {
-        currAnswer = currAnswer.replace("\\'", "'");
-    }
+    // if (currAnswer.includes('')) {
+    //     currAnswer = currAnswer.replace("\\'", "'");
+    // }
 
-    // check (not case dependent) user's input against answer
-    if (userAnswer.toLowerCase() != currAnswer.toLowerCase()) {
+    // use regex to remove: 
+    //  (i) parentheses for optional substrings (e.g. answer: "a (salad) dressing")
+    //  (ii) the escape character for single quotes (e.g. answer: "Charlie\'s Angels")
+    currAnswer = currAnswer.replace(/(\(|\)|\\)/g, "");
+    console.log("Updated answer: " + currAnswer);
+
+    // check user's input against answer (case-insensitive)
+    // if (userAnswer.toLowerCase() != currAnswer.toLowerCase()) {
+    if (!currAnswer.toLowerCase().includes(userAnswer.toLowerCase())) {
         // same result as giving up
         giveUp();
     } else {
