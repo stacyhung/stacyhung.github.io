@@ -10,9 +10,10 @@ const correctAnswer = document.querySelector('.correct-answer');
 const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
-let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
+// let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
 // let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer; $600 has <i>...</i> tags
-// let offset = 4549; //Zombies for $400 (The Walking Dead), Das Bait for $200 (a lure), Text me for $200 (face-to-face), text me for $600 (ha ha, only kidding)
+// let offset = 4549; // Zombies for $400 (The Walking Dead), Das Bait for $200 (a lure), Text me for $200 (face-to-face), text me for $600 (ha ha, only kidding)
+let offset = 1041; // Have you been tested? for $200 - answer is "An ultrasound"
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -159,7 +160,7 @@ function showAnswer() {
 function checkAnswer() {
     let userAnswer = userGuess.value;
     let prefixThe = /^THE .*/g;
-    let prefixA = /^A .*/g;
+    let prefixA = /^A(N)? .*/g;
     let currAnswerRE;
     // allow the user the chance to guess the right answer if it contains a dash
     let altAnswer1 = currAnswer.replace(/-/g, ""); // e.g. "Jell-O" (user likely to submit "Jello")
@@ -187,10 +188,10 @@ function checkAnswer() {
         altAnswer1RE = new RegExp(`(THE\s)?${altAnswer1}`);
         altAnswer2RE = new RegExp(`(THE\s)?${altAnswer2}`);
     } else if (prefixA.test(currAnswer)) {
-        currAnswer = currAnswer.replace(/^A /g, "");
-        currAnswerRE = new RegExp(`(A\s)?${currAnswer}`);
-        altAnswer1RE = new RegExp(`(A\s)?${altAnswer1}`);
-        altAnswer2RE = new RegExp(`(A\s)?${altAnswer2}`);
+        currAnswer = currAnswer.replace(/^A(N)? /g, "");
+        currAnswerRE = new RegExp(`(A(N)?\s)?${currAnswer}`);
+        altAnswer1RE = new RegExp(`(A(N)?\s)?${altAnswer1}`);
+        altAnswer2RE = new RegExp(`(A(N)?\s)?${altAnswer2}`);
     } else {
         currAnswerRE = new RegExp(currAnswer);
         altAnswer1RE = new RegExp(altAnswer1);
