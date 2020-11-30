@@ -13,7 +13,7 @@ let numCategories = 6;  // number of categories to retrieve
 // let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
 // let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer; $600 has <i>...</i> tags
 // let offset = 4549; // Zombies for $400 (The Walking Dead), Das Bait for $200 (a lure), Text me for $200 (face-to-face), text me for $600 (ha ha, only kidding)
-let offset = 1041; // Have you been tested? for $200 - answer is "An ultrasound"
+let offset = 15834; // Have you been tested? for $200 - answer is "An ultrasound"
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
@@ -133,7 +133,6 @@ getCategories().then(categories => {
 // when the user clicks the "give up" button
 function giveUp() {
     // show the answer and keep the question up at the same time for a few seconds
-    answerBoard.style.display = "none";
     showAnswer();
 
     // subtract points from the score;
@@ -200,19 +199,15 @@ function checkAnswer() {
 
     console.log("Updated answer: " + currAnswer + ".");
     console.log("Updated user answer: " + userAnswer + ".");
-    // console.log("Alternate answer: " + altAnswer1);
-    // console.log("Alternate answer: " + altAnswer2);
+
+    // close answer board
+    answerBoard.style.display = "none";
 
     // check if user's answer matches game answer
     if (!(currAnswerRE.test(userAnswer)) & !(altAnswer1RE.test(userAnswer)) & !(altAnswer2RE.test(userAnswer))) {
         // incorrect answer - same result as give up
         giveUp();
     } else {
-        // close the guess board and question board
-        questionBoard.style.display = "none";
-        answerBoard.style.display = "none";
-        // open the clue grid up
-        board.style.display = "grid";
         // subtract points from the score;
         score += currValue;
         scoreBoard.innerHTML = `$${score}`;
