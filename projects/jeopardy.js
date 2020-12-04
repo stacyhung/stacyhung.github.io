@@ -10,15 +10,18 @@ const correctAnswer = document.querySelector('.correct-answer');
 const correctAnswerTitle = document.querySelector('.answer-title');
 
 let numCategories = 6;  // number of categories to retrieve
-// let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
+let offset = Math.floor(Math.random() * 18350); // starting point to start retrieving categories (maximum of 18400)
 // let offset = 15580; // Clue for "'DRESS'ED" category for $200 has optional string and "a" at front of answer; $600 has <i>...</i> tags
 // let offset = 4549; // Zombies for $400 (The Walking Dead), Das Bait for $200 (a lure), Text me for $200 (face-to-face), text me for $600 (ha ha, only kidding)
-let offset = 15834; // Have you been tested? for $200 - answer is "An ultrasound"
+// let offset = 15834; // Have you been tested? for $200 - answer is "An ultrasound"
 let currQuestion = "";
 let currAnswer = "";
 let score = 0;
 let currValue = 0;
 let isRandomClue = false;
+let isPictureClue = false;
+let pictureLink = "";
+let pictureImg;
 
 /**
  * Jeopardy (from Scrimba)
@@ -87,6 +90,11 @@ function showQuestion() {
         questionBoard.innerHTML = "(*random clue*) " + currQuestion;
     } else {
         questionBoard.innerHTML = currQuestion;
+        // if picture clue, add img as child element of questionBoard
+        if (isPictureClue) {
+            questionBoard.innerHTML += `<img src="${pictureLink}" class="img-picture-clue"
+            alt="picture clue" />`
+        }
     }
     openAnswerBoard();
 }
@@ -110,6 +118,22 @@ const showValueAndQuestion = e => {
         // console.log("Clue: " + JSON.stringify(clue));
         currAnswer = clue[0].answer;
         currQuestion = clue[0].question;
+        isPictureClue = false;
+
+        // check if picture clue (link to picture is the answer)
+        let linkRegex = /<a href="(.*)" target="_blank">(.*)<\/a>/;
+        // e.g. <a href="http://www.bla.com/pic.jpg" target="_blank">Alfred E. Neuman</a>
+
+        if (linkRegex.test(currAnswer)) {
+            isPictureClue = true;
+            // extract matching group
+            let match = currAnswer.match(linkRegex)
+            pictureLink = match[1];
+            currAnswer = match[2];
+            pictureImg = `<img src="${pictureLink}" class="img-picture-clue" alt="picture clue" />`;
+            console.log("Picture link: " + pictureImg);
+        }
+
         console.log("Answer: " + currAnswer);
         console.log("Question: " + currQuestion);
         setTimeout(showQuestion, 1500);
