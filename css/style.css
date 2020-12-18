@@ -413,6 +413,10 @@ Blog pages
     color: var(--clr-secondary);
 }
 
+.bulletless-list {
+    list-style: none;
+}
+
 /* ======================
 About me
 ========================= */
@@ -882,6 +886,11 @@ h4 span {
 
 .give-up-btn {
     margin-right: 25px;
+}
+
+.img-picture-clue {
+    width: 50%;
+    object-fit: cover;
 }
 
 /* ======================
